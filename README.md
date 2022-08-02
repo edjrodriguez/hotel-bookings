@@ -1,4 +1,4 @@
-# Webpack Starter Kit
+# Hotel Bookings
 
 ## Clone This Repo
 
