@@ -7,10 +7,46 @@
   <title>Webpack Starter Kit</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
+  <section class="heading">
+    <button class="hidden home-button" id="homeButton">Home</button>
+  </section>
 
+  <section class="home-section " id="homeSection">
+    <section class="user-history-button-container">
+      <button class="your-bookings-buttons" id="yourBookingsButton">Your Bookings</button>
+      <button class="your-transactions-buttons" id="yourTransactionsButton">Your Transactions</button>
+    </section>
+    <section class="book-a-room-button-container">
+      <button class="book-a-room-button" id="bookARoomButton">Book A Room</button>
+    </section>
+  </section>
+
+  <section class="bookings-section hidden" id="bookingsSection">
+    <section class="past-stays-button-container">
+    <button class="past-stays-button" id="pastStaysButton">Past Visits</button>
+  </section>
+  <section class="bookings-display">
+    <h3>Your bookings</h3>
+  </section>
+    <section class="upcoming-stays-button-container" >
+      <button class="upcoming-stays-button" id="upComingStaysButton">Upcoming Stays</button>
+    </section>
+  </section>
+
+  <section class="transactions-section hidden" id ="transactionsSection">
+    <section class="transactions-display">
+      <h1>your transactions</h1>
+      <p>you list of transactions will go here</p>
+    </section>
+  </section>
+
+  <section class="book-a-room-section-section hidden" id ="bookARoomSection">
+    <section class="book-a-room-display">
+      <h1>Pick a date to book your room</h1>
+      <p>Calandar will go here</p>
+    </section>
+  </section>
+  
+  <script src="bundle.js"></script>
 </body>
 </html>
