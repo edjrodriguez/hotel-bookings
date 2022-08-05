@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #f0ead6;
+  background: #f0ead6; 
   display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -13,14 +13,59 @@ body {
   height: 100vh;
   width: 100vw;
 }
-
-.heading {
-  height: 30%;
+.heading-container{
+  border-top: 0;
+  height: 25%;
   width: 98%;
+  background-image: url("../images/hotel-carpet.png");
+  background-size: 100%;
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+
+}
+.heading {
+  height: 100%;
+  width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.carpet{
+  height: 100%;
+  width:100%;
+}
+.logo {
+  height: 95%;
+}
+.home-button{
+  width: 100%;
+  height: 25%;
+  background: #3d291e ;
+  font-family: "Georgia";
+  color: white;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.heading-book-room-button {
+  width: 100%;
+  height: 100%;
+  background: #3d291e ;
+  font-family: "Georgia";
+  color: white;
+  font-weight: bold;
+  font-size: xx-large;
 }
 
 .home-section{
-  height: 70%;
+  height: 75%;
   width: 98%;
 	display: flex;
 	flex-direction: row;
@@ -28,6 +73,22 @@ body {
 	justify-content: space-around;
 	align-items: center;
 	align-content: stretch;
+}
+
+.bookings-section{
+  height: 75%;
+  width: 98%;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+	align-items: stretch;
+	align-content: stretch;
+}
+
+.transactions-section{
+  background: #f0ead6;
+
 }
 
 .book-a-room-button-container {
@@ -50,18 +111,51 @@ width: 40%;
 .book-a-room-button{
   width: 100%;
   height: 100%;
+  background: #3d291e ;
+  font-family: "Georgia";
+  color: white;
+  font-weight: bold;
+  font-size:xx-large;
 }
 
 .your-transactions-buttons,
 .your-bookings-buttons {
   width: 100%;
+  background: #3d291e ;
+  font-family: "Georgia";
+  color: white;
+  font-weight: bold;
+  font-size: xx-large;
   height: 25%;
+}
+
+.your-bookings-display {
+  width: 50%;
+  height: 100%;
+}
+
+.past-stays-button-container,
+.upcoming-stays-button-container {
+  width: 15%;
+  height: 80%;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+
 }
 
 .past-stays-button,
 .upcoming-stays-button{
-  width: 50%;
+  width: 100%;
   height: 25%;
+  background: #3d291e ;
+  font-family: "Georgia";
+  color: white;
+  font-weight: bold;
+  font-size: xx-large;
 }
 
 .hidden {
