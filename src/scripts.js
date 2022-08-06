@@ -1,12 +1,15 @@
 import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/turing-logo.png'
+import './images/hotel-icon.png'
+import './images/hotel-carpet.png'
 
 //query selectors
 let bookingsButton = document.getElementById('yourBookingsButton')
 let yourTransactionsButton = document.getElementById('yourTransactionsButton')
 let bookARoomButton = document.getElementById('bookARoomButton')
+let bookARoomButtonHeading = document.getElementById('bookARoomButtonHeading')
+
 let homeSection = document.getElementById('homeSection')
 let bookingsSection = document.getElementById('bookingsSection')
 let transactionsSection = document.getElementById('transactionsSection')
@@ -26,12 +29,14 @@ function goHome() {
     hide(transactionsSection);
     hide(bookingsSection);
     hide(bookARoomSection)  
+    hide(bookARoomButtonHeading)
 }
 function showBookingsSection () {
     hide(homeSection);
     show(bookingsSection)
     hide(transactionsSection);
     show(homeButton)
+    show(bookARoomButtonHeading)
 }
 
 
