@@ -15,52 +15,33 @@
       </div>
       <img src="./images/hotel-icon.png" alt="hotel logo" class="logo">
       <div class="heading-left-side-button-container ">
-        <button class="hidden heading-book-room-button"  id="bookARoomButtonHeading">Book A room</button>
         <p class="user-name" id="userNameWelcome">`Welcome ${user}`</p>
+      
       </div>
     </div>
   </section>
 
   <section class="home-section " id="homeSection">
-    <div class="user-history-button-container">
-      <p id="yourBookingsButton"></p>
-      <p id="yourTransactionsButton"></p>
-      <!-- <button class="your-bookings-buttons" id="yourBookingsButton">Your Bookings</button> -->
-      <!-- <button class="your-transactions-buttons" id="yourTransactionsButton">Your Transactions</button> -->
+    <div class="customer-dashboard-container">
+      <h1 class="your-bookings-heading">Your bookings</h1>
+      <p class="your-bookings" id="yourBookings"></p>
     </div>
-    <div class="book-a-room-button-container">
-      <button class="book-a-room-button" id="bookARoomButton" aria-details="Button to book a room">Book A Room</button>
-    </div>
-  </section>
-
-  <section class="bookings-section hidden" id="bookingsSection">
-    <div class="past-stays-button-container">
-    <button class="past-stays-button " id="pastStaysButton">View Your Past Visits</button>
-    </div>
-  <section class="your-bookings-display">
-    <h3 class="user-bookings-view-upcoming">Your Upcoming Bookings</h3>
-    <h3 class="user-bookings-view-past hidden">Your Past Bookings</h3>
-
-  </section>
-    <div class="upcoming-stays-button-container" >
-      <button class="upcoming-stays-button hidden" id="upComingStaysButton">View Your Upcoming Stays</button>
+    <div class="book-a-room-container ">
+      <button class="book-a-room-button " id="bookARoomButton" aria-details="Button to book a room">Book A Room</button>
+      <section class="book-a-room-section hidden" id ="bookARoomSection">
+        <section class="book-a-room-display">
+          <h1>Pick a date to book your room</h1>
+          <input type="date" name="date-picker" id="datePickerInput" placeholder="">
+          <p id="numberOfRoomsAvailable">Number of Rooms Available: </p>
+          <section class="display-available-rooms-container"  id="availableRoomsDisplay"></section>
+        </section>
+      </section>
     </div>
   </section>
 
-  <section class="transactions-section hidden" id ="transactionsSection">
-    <div class="transactions-display">
-      <h1>your transactions</h1>
-      <p>you list of transactions will go here</p>
-    </div>
-  </section>
 
-  <section class="book-a-room-section-section hidden" id ="bookARoomSection">
-    <section class="book-a-room-display">
-      <h1>Pick a date to book your room</h1>
-      <p>Calandar will go here</p>
-    </section>
-  </section>
   
   <script src="bundle.js"></script>
 </body>
 </html>
+

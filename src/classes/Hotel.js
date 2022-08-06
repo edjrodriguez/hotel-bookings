@@ -6,26 +6,26 @@ class Hotel {
         this.rooms = allRooms
         this.customers = allCustomers
         this.bookings = bookingsData
-        this.availableRoomNumbers = []
+        this.notAvailableRoomNumbers = []
         this.availableRoomObjects = []
         this.roomByType = []
     }
     getVacantRoomsByDate(selectedDate){
+        let availableRooms = []
         this.bookings.forEach(booking => {
-            if(booking.date !== selectedDate){
-                this.availableRoomNumbers.push(booking.roomNumber)
+            if(booking.date === selectedDate) {
+                this.notAvailableRoomNumbers.push(booking.roomNumber)
             }
         })
-       return this.availableRoomNumbers.reduce((acc, currRmNumber) => {
-            this.rooms.forEach(room => {
-                if(currRmNumber === room.number){
-                    this.availableRoomObjects.push(room)
-                    acc.push(room)
-                }
-            })
-            return acc
-        },[])
+        this.rooms.forEach(room => {
+            if(!this.notAvailableRoomNumbers.includes(room.number)) {
+                this.availableRoomObjects.push(room)
+                availableRooms.push(room)
+            } 
+        })
+        return availableRooms
     }
+      
     filterAvailableRoomsByType(type){ 
         return this.availableRoomObjects.reduce((acc, currRoom) => {
             if(currRoom.type === type) {
@@ -35,6 +35,7 @@ class Hotel {
             return acc
         }, [])
     }
+    
     makeBooking(customer, roomNumber, date) {
         let booking;
       return booking = new Booking(customer, roomNumber, date) 
