@@ -58,7 +58,7 @@ class Hotel {
             }
         return array
     }, [])
-  let total =   this.rooms.reduce((sum, currRoom) => {
+  let total = this.rooms.reduce((sum, currRoom) => {
         customerBookingRoomNumbers.forEach(roomNum =>{
             if(currRoom.number === roomNum) {
                 sum += currRoom.costPerNight

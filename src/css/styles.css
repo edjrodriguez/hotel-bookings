@@ -27,6 +27,13 @@ body {
 	align-content: stretch;
 
 }
+.user-name {
+  background-color: #f0ead6;
+  font-weight: bold;
+  font-size:large;
+  font-family: "Georgia";
+  margin-right: 5%;
+}
 .heading {
   height: 100%;
   width: 100%;
