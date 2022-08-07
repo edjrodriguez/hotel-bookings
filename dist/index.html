@@ -29,7 +29,16 @@
       <button class="book-a-room-button " id="bookARoomButton" aria-details="Button to book a room">Book A Room</button>
       <section class="book-a-room-section hidden" id ="bookARoomSection">
         <h1>Pick a date to book your room</h1>
-        <input type="date" name="date-picker" id="datePickerInput" placeholder="">
+        <input type="date" name="date-picker" id="datePickerInput" placeholder="YYYY/MM/DD">
+        <label class="hidden" id="filterByTypeSection" for="">Filter Rooms by Type
+          <select name="room-type" class="room-type " id="roomTypeSelect" aria-placeholder="">
+            <option value="" default selected>Any room...</option>
+            <option value="single room">Single Room</option>
+            <option value="suite">Suite</option>
+            <option value="junior suite">Junior Suite</option>
+            <option value="residential suite">Residential Suite</option>
+          </select>
+       </label>
         <div id="numberOfRoomsAvailable"></div>
         <section class="book-a-room-display">
           <section class="display-available-rooms-container"  id="availableRoomsDisplay"></section>
