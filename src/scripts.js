@@ -16,18 +16,19 @@ import './images/hotel-carpet.png'
 //global
 let hotel;
 let currentCustomer; 
+let allRooms;
+let allCustomers
 
 Promise.all([fetchData('rooms'), fetchData('bookings'), fetchData('customers')])
 .then(([roomsData, bookingsData, customersData]) => { 
-    let allRooms = roomsData.rooms.map(room=> {
+     allRooms = roomsData.rooms.map(room=> {
     return new Room(room)
 })
-let allCustomers = customersData.customers.map(customer => {
+ allCustomers = customersData.customers.map(customer => {
     return new Customer(customer)
 })
 hotel = new Hotel(allRooms, allCustomers, bookingsData.bookings)
 displayCustomerName()
-
 })
 
 
@@ -44,6 +45,14 @@ let bookARoomSection = document.getElementById('bookARoomSection')
 let availableRoomsDisplay = document.getElementById('availableRoomsDisplay')
 let homeButton = document.getElementById('homeButton')
 let numberOfRoomsAvailable = document.getElementById('numberOfRoomsAvailable')
+let roomTypeSelect = document.getElementById('roomTypeSelect')
+let filterByTypeSection = document.getElementById('filterByTypeSection')
+
+
+
+
+
+
 
 
 
@@ -56,9 +65,8 @@ bookARoomSection.addEventListener('click', handleButtons)
 bookARoomButton.addEventListener('click', showBookARoomSection);
 homeButton.addEventListener('click', goHome);
 datePickerInput.addEventListener('input', captureDate)
-// window.onload = function () {
-//     displayCustomerName()
-// }
+roomTypeSelect.addEventListener('change', filterByType)
+
 
 function handleButtons(event) {
     switch (event.target.id) {
@@ -84,32 +92,13 @@ function updateBookingsData(booking) {
     })
     .then(response => {if(!response.ok) {throw new Error(response.statusText) } else {return response.json()}})
     .then(data => fetchData('bookings')
-    .then(bookingsData => { displayCustomerName()}))
+    .then(bookingsData => { 
+        hotel = new Hotel(allRooms, allCustomers, bookingsData.bookings)
+        displayCustomerName()
+    }))
 
     .catch(error => homeSection.innerHTML += `<p>${error.message}</p>`)
 }
-
-
-//                              (newIngredient, event) {
-//     event.preventDefault()
-//     fetch("http://localhost:3001/api/v1/bookings", {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify(newIngredient)
-//     })
-//     .then(response => {if(!response.ok) {throw new Error(response.statusText) } else {return response.json()}})
-//     .then(data => fetchData('users')
-//     .then(userData => {
-//         userData.forEach(person => {
-//         if(person.id === newIngredient.userID) {
-//         user = new User(person);
-//       listUsersIngredients()
-//         }
-//     })
-//   })
-//     )
-//     .catch(error => yourPantry.innerHTML += `<p>${error.message}</p>`)
-//   }
 
 
 function displayCustomerName() {
@@ -131,18 +120,12 @@ function makeABookingWithHotel(event){
     let selectedDate = input.split('-').join('/')
     let customerID = event.path[8].children[0].children[0].children[2].children[0].children[2].innerText
     let roomNum = event.path[2].children[2].children[3].innerText
-    
     let integerifyroomNum = parseInt(roomNum)
     let integerifycustomerID = parseInt(customerID)
-    
     let postBooking = hotel.makeBooking(integerifycustomerID, integerifyroomNum, selectedDate)
-
-
     console.log(postBooking)
     datePickerInput.value = null;
-
     updateBookingsData(postBooking)
-
 }
 
 function renderAvailableRooms(selectedDate) {
@@ -168,9 +151,33 @@ function renderAvailableRooms(selectedDate) {
         <button class="make-booking-button" id="makeABookingButton">Book this Room</button>
         </div>
         </div>`
-        // <p class="confirmation-card-confirmation-number">confirmation number: ${confirmation.confirmationID}</p>
-        // </div>`
     })
+    show(filterByTypeSection);
+}
+
+function filterByType(roomTypeSelect) {
+   let roomsByType = hotel.filterAvailableRoomsByType(roomTypeSelect.target.value)
+   availableRoomsDisplay.innerHTML = " "
+
+   roomsByType.forEach(room => {
+       availableRoomsDisplay.innerHTML +=  `<div class="available-room-container">
+       <h4 class="available-room-type">Type of Room: ${room.type}</h4>
+       <h4 class="available-room-cost"> Cost Per Night: ${room.costPerNight}</h4>
+       <ul class="available-room-details">
+           <li>Bed Size: ${room.bedSize}  </li>
+           <li>Number of Beds: ${room.numBeds}   </li>
+           <li> Has bidet:${room.bidet}   </li>
+           <li class="hidden"> ${room.number} </li>
+       </ul>
+       <div>
+       <button class="make-booking-button" id="makeABookingButton">Book this Room</button>
+       </div>
+       </div>`
+
+
+   })
+
+
 }
 
 function renderDashboard(currentCustomer) {

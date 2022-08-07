@@ -27,6 +27,7 @@ class Hotel {
     }
       
     filterAvailableRoomsByType(type){ 
+        // console.log(this.availableRoomObjects)
         return this.availableRoomObjects.reduce((acc, currRoom) => {
             if(currRoom.type === type) {
                 this.roomByType.push(currRoom)
