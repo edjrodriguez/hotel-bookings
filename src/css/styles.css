@@ -10,7 +10,7 @@ body {
 	justify-content: flex-start;
 	align-items: stretch;
 	align-content: stretch;
-  height: 100vh;
+  height: 95vh;
   width: 100vw;
 }
 .heading-container{
@@ -27,7 +27,6 @@ body {
 	align-content: stretch;
 
 }
-
 
 .your-bookings-heading {
   font-size: ;
@@ -67,15 +66,7 @@ body {
   font-size: xx-large;
 }
 
-.heading-book-room-button {
-  width: 100%;
-  height: 100%;
-  background: #3d291e ;
-  font-family: "Georgia";
-  color: white;
-  font-weight: bold;
-  font-size: xx-large;
-}
+
 
 .home-section{
   height: 85%;
@@ -98,8 +89,6 @@ body {
 	align-items: stretch;
 	align-content: stretch;
 }
-
-
 
 .customer-dashboard-container {
   height:100%;
@@ -149,7 +138,36 @@ body {
   align-content: stretch;
 }
 
+.collapsible-bookings-menu {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  /* height: %; */
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible-bookings-menu:hover {
+  background-color: #ccc;
+}
+
+.your-bookings-history {
+  height: 90%;
+  padding: 0 18px;
+  display: none;
+  overflow-y: scroll;
+  background-color: #f1f1f1;
+}
+
+
+
+.go-back-button,
 .book-a-room-button{
+  cursor: pointer;
   width: 45%;
   height: 20%;
   background: #3d291e ;
@@ -179,7 +197,7 @@ body {
   font-size: xx-large;
   height: 100%;
   margin-top: 0;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .your-bookings-display {
@@ -202,6 +220,7 @@ body {
 
 .past-stays-button-container,
 .upcoming-stays-button-container {
+  
   width: 15%;
   height: 80%;
   display: flex;
@@ -213,16 +232,7 @@ body {
 
 }
 
-.past-stays-button,
-.upcoming-stays-button{
-  width: 100%;
-  height: 25%;
-  background: #3d291e ;
-  font-family: "Georgia";
-  color: white;
-  font-weight: bold;
-  font-size: xx-large;
-}
+
 
 .hidden {
   display: none;
