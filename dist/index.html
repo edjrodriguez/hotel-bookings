@@ -22,17 +22,23 @@
 
   <section class="home-section " id="homeSection">
     <div class="customer-dashboard-container">
-      <h1 class="your-bookings-heading">Your bookings</h1>
-      <p class="your-bookings" id="yourBookings"></p>
+      <button type="button" class="collapsible-bookings-menu" id="collapsibleBookingsMenu">View Your Bookings</button>
+       <div class="your-bookings-history" id="bookingsHistory">
+        <!-- <h1 class="your-bookings-heading">Your bookings</h1> -->
+        <p class="your-bookings" id="yourBookings"></p>
+      </div>
     </div>
-    <div class="book-a-room-container ">
-      <button class="book-a-room-button " id="bookARoomButton" aria-details="Button to book a room">Book A Room</button>
+    <section class="book-a-room-container">
+      <h1 class="hidden" id="bookingConfirmedMessage">Booking Confirmed!  We'll see ya soon.  
+        See the YOUR BOOKINGS section for confirmation number and date of your upcoming stay!
+      </h1>
+      <button class="book-a-room-button " id="bookARoomButton">Book A Room</button>
       <section class="book-a-room-section hidden" id ="bookARoomSection">
-        <h1>Pick a date to book your room</h1>
-        <input type="date" name="date-picker" id="datePickerInput" placeholder="YYYY/MM/DD">
+        <h1 id="pickADate">Pick a date to book your room                                <button class="go-back-button " id="goBack">Back to main</button></h1>
+        <input type="date" name="date-picker" id="datePickerInput">
         <label class="hidden" id="filterByTypeSection" for="">Filter Rooms by Type
           <select name="room-type" class="room-type " id="roomTypeSelect" aria-placeholder="">
-            <option value="" default selected>Any room...</option>
+            <option value="room types" default selected>All rooms</option>
             <option value="single room">Single Room</option>
             <option value="suite">Suite</option>
             <option value="junior suite">Junior Suite</option>
@@ -40,11 +46,11 @@
           </select>
        </label>
         <div id="numberOfRoomsAvailable"></div>
-        <section class="book-a-room-display">
+        <section class="book-a-room-display hidden" id="displayAvailableRoomsForSelectedDate">
           <section class="display-available-rooms-container"  id="availableRoomsDisplay"></section>
         </section>
       </section>
-    </div>
+    </section>
   </section>
 
 
