@@ -8,7 +8,6 @@
 </head>
 <body>
   <section class="heading-container">
-    <!-- <img class="carpet" src="./images/hotel-carpet.png" alt=""> -->
     <div class="heading">
       <div class="heading-right-side-button-container">
         <button class="hidden home-button" id="homeButton">Home</button>
@@ -29,10 +28,10 @@
     <div class="book-a-room-container ">
       <button class="book-a-room-button " id="bookARoomButton" aria-details="Button to book a room">Book A Room</button>
       <section class="book-a-room-section hidden" id ="bookARoomSection">
+        <h1>Pick a date to book your room</h1>
+        <input type="date" name="date-picker" id="datePickerInput" placeholder="">
+        <div id="numberOfRoomsAvailable"></div>
         <section class="book-a-room-display">
-          <h1>Pick a date to book your room</h1>
-          <input type="date" name="date-picker" id="datePickerInput" placeholder="">
-          <p id="numberOfRoomsAvailable">Number of Rooms Available: </p>
           <section class="display-available-rooms-container"  id="availableRoomsDisplay"></section>
         </section>
       </section>
@@ -40,7 +39,7 @@
   </section>
 
 
-  
+
   <script src="bundle.js"></script>
 </body>
 </html>

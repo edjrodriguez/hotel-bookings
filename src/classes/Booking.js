@@ -1,8 +1,8 @@
 class Booking {
     constructor(customer, room, dayOfFutureStay) {     
-        this.userID = customer.userID
+        this.userID = customer
         this.date = dayOfFutureStay 
-        this.roomNumber = room.number
+        this.roomNumber = room
     }
 }
 export default Booking

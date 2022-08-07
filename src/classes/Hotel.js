@@ -35,9 +35,10 @@ class Hotel {
             return acc
         }, [])
     }
-    
+
     makeBooking(customer, roomNumber, date) {
         let booking;
+        console.log('lost', customer)
       return booking = new Booking(customer, roomNumber, date) 
     }
 
