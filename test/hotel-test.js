@@ -113,10 +113,10 @@ describe('Hotel', function() {
   });
 
   it('should start with no available room numbers', function() {
-    expect(hotel.availableRoomNumbers).to.deep.equal([])
+    expect(hotel.notAvailableRoomNumbers).to.deep.equal([])
   });
 
-  it('Should be able to filter available rooms by selected date 1 "2022/04/20', function() {
+  it.only('Should be able to filter available rooms by selected date 1 "2022/04/20', function() {
     expect(hotel.getVacantRoomsByDate(selectedDate1)).to.deep.equal([
       {
         number: 12,
@@ -224,7 +224,7 @@ describe('Hotel', function() {
 
   it('should be able to add Rooms to the available room numbers', function() {
     hotel.getVacantRoomsByDate(selectedDate1)
-    expect(hotel.availableRoomNumbers).to.deep.equal([12, 14, 9, 5, 13, 18 ])
+    expect(hotel.notAvailableRoomNumbers).to.deep.equal([12, 14, 9, 5, 13, 18 ])
   });
 
   it('Should be able to filter available rooms by residential type', function() {
