@@ -377,7 +377,7 @@ describe('Hotel', function() {
   it('should be able to make a new Booking with a customer', function() {
     customer1 = new Customer(sampleCustomersData.customers[0]);
     let roomSelection = hotel.getVacantRoomsByDate(selectedDate2)[2]
-    expect(hotel.makeBooking(customer1, roomSelection, selectedDate2 )).to.deep.equal(
+    expect(hotel.makeBooking(customer1.userID, roomSelection.number, selectedDate2 )).to.deep.equal(
       { userID: 1, date: '2022/10/31', roomNumber: 3 })
   });
 

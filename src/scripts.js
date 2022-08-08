@@ -15,14 +15,10 @@ let customerNumber;
 
 Promise.all([fetchData('rooms'), fetchData('bookings'), fetchData('customers')])
 .then(([roomsData, bookingsData, customersData]) => { 
-     allRooms = roomsData.rooms.map(room=> {
-    return new Room(room)
-})
- allCustomers = customersData.customers.map(customer => {
-    return new Customer(customer)
-})
-hotel = new Hotel(allRooms, allCustomers, bookingsData.bookings)
-setCurrentDate()
+    allRooms = roomsData.rooms.map(room=> {return new Room(room)})
+    allCustomers = customersData.customers.map(customer => {return new Customer(customer)})
+    hotel = new Hotel(allRooms, allCustomers, bookingsData.bookings)
+    setCurrentDate()
 })
 
 //query selectors
@@ -47,8 +43,6 @@ let goBack = document.getElementById('goBack')
 let userNameOrPasswordError = document.getElementById('userNameOrPasswordError')
 let loginPage = document.getElementById('loginPage')
 let collapsibleBookingsMenu = document.getElementsByClassName("collapsible-bookings-menu");
-
-
 
 // this is waht allows my bookings menu to collapse.  need to refactor for loop
 let i;
@@ -129,17 +123,24 @@ function updateBookingsData(booking) {
             },
             body: JSON.stringify(booking)
     })
-    .then(response => {if(!response.ok) {throw new Error(response.statusText) } else {return response.json()}})
+    .then(response => {
+        if(!response.ok) {
+            throw new Error(response.statusText) 
+        } else {
+            confirmBooking()
+            return response.json()}})
     .then(data => fetchData('bookings')
     .then(bookingsData => { 
-        confirmBooking()
         hotel = new Hotel(allRooms, allCustomers, bookingsData.bookings)
         displayCustomerName(customerNumber)
     }))
-    .catch(error => homeSection.innerHTML += `<p>${error.message}</p>`)
+    .catch(error => {
+        availableRoomsDisplay.innerHTML = `<p>${error.message}</p>
+        <p>There was an error with making your booking. Please contact the hotel directly to confirm your booking.</p> `
+        setTimeout(goBacktoMain, 5000)
+        setTimeout(newSearch, 5500)
+    })
 }
-
-
 
 function captureDate() {
     show(displayAvailableRoomsForSelectedDate)
@@ -149,12 +150,14 @@ function captureDate() {
 }
 
 function makeABookingWithHotel(event){
-    let  input = datePickerInput.value
+    let input = datePickerInput.value
     let selectedDate = input.split('-').join('/')
     let customerID = event.path[8].children[0].children[0].children[2].children[0].children[2].innerText
     let roomNum = event.path[2].children[2].children[3].innerText
     let integerifyroomNum = parseInt(roomNum)
     let integerifycustomerID = parseInt(customerID)
+    console.log(integerifycustomerID)
+    console.log(integerifyroomNum)
     let postBooking = hotel.makeBooking(integerifycustomerID, integerifyroomNum, selectedDate)
     console.log(postBooking)
     datePickerInput.value = null;
@@ -168,11 +171,11 @@ function confirmBooking() {
     show(datePickerInput)
     hide(filterByTypeSection)
     availableRoomsDisplay.innerHTML = " "; 
-    numberOfRoomsAvailable.innerHTML = " "
+    numberOfRoomsAvailable.innerHTML = " ";
     hotel.notAvailableRoomNumbers = [];
     hotel.availableRoomObjects = []
     show(bookingConfirmedMessage)
-    setTimeout(backToMain, 6000)
+    setTimeout(backToMain, 7000)
 }
 
 function backToMain() {

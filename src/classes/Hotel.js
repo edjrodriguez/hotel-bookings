@@ -27,7 +27,6 @@ class Hotel {
     }
       
     filterAvailableRoomsByType(type){ 
-        // console.log(this.availableRoomObjects)
         if(type === 'room types'){
             return this.availableRoomObjects
         } else {
