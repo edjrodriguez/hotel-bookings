@@ -27,9 +27,9 @@ describe('Booking', function() {
         customer3 = new Customer(sampleCustomersData.customers[2]);
         room1 = new Room(sampleRoomsData.rooms[0]);
         room4 = new Room(sampleRoomsData.rooms[3]);
-        booking1 = new Booking(customer1, room1, dayOfFutureStay1);
-        booking2 = new Booking(customer3, room4, dayOfFutureStay2);
-        booking3 = new Booking(customer3, room1, dayOfFutureStay3);
+        booking1 = new Booking(customer1.userID, room1.number, dayOfFutureStay1);
+        booking2 = new Booking(customer3.userID, room4.number, dayOfFutureStay2);
+        booking3 = new Booking(customer3.userID, room1.number, dayOfFutureStay3);
      });
 
   it('Should be a function', function(){
@@ -39,7 +39,6 @@ describe('Booking', function() {
   it('Should be a new instance of Booking', function() {
     expect(booking1).to.be.an.instanceOf(Booking)
   });
-
 
   it('should hold a customers userId', function() {
     expect(booking1.userID).to.equal(1)
