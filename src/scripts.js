@@ -3,8 +3,6 @@ import { fetchData } from './apiCalls';
 import Customer from '../src/classes/Customer';
 import Room from '../src/classes/Room';
 import Hotel from '../src/classes/Hotel';
-import Booking from '../src/classes/Booking';
-import BookingConfirmation from '../src/classes/BookingConfirmation';
 import './images/hotel-icon.png'
 import './images/hotel-carpet.png'
 
@@ -13,6 +11,7 @@ let hotel;
 let currentCustomer; 
 let allRooms;
 let allCustomers
+let customerNumber;
 
 Promise.all([fetchData('rooms'), fetchData('bookings'), fetchData('customers')])
 .then(([roomsData, bookingsData, customersData]) => { 
@@ -20,11 +19,9 @@ Promise.all([fetchData('rooms'), fetchData('bookings'), fetchData('customers')])
     return new Room(room)
 })
  allCustomers = customersData.customers.map(customer => {
-
     return new Customer(customer)
 })
 hotel = new Hotel(allRooms, allCustomers, bookingsData.bookings)
-displayCustomerName()
 setCurrentDate()
 })
 
@@ -35,27 +32,25 @@ let bookARoomButton = document.getElementById('bookARoomButton')
 let bookARoomButtonHeading = document.getElementById('bookARoomButtonHeading')
 let userNameWelcome = document.getElementById('userNameWelcome')
 let homeSection = document.getElementById('homeSection')
-let bookingsSection = document.getElementById('bookingsSection')
-let transactionsSection = document.getElementById('transactionsSection')
 let bookARoomSection = document.getElementById('bookARoomSection')
 let availableRoomsDisplay = document.getElementById('availableRoomsDisplay')
-let homeButton = document.getElementById('homeButton')
+let userLoginName = document.getElementById('userLoginName')
+let userPassword = document.getElementById('userPassword')
+let loginSubmit = document.getElementById('loginSubmit')
 let numberOfRoomsAvailable = document.getElementById('numberOfRoomsAvailable')
 let roomTypeSelect = document.getElementById('roomTypeSelect')
 let filterByTypeSection = document.getElementById('filterByTypeSection')
 let pickADate = document.getElementById('pickADate')
 let bookingConfirmedMessage = document.getElementById('bookingConfirmedMessage')
 let displayAvailableRoomsForSelectedDate = document.getElementById('displayAvailableRoomsForSelectedDate')
-let collapsibleBookingsMenu = document.getElementsByClassName("collapsible-bookings-menu");
 let goBack = document.getElementById('goBack')
-
-goBack
-
-// let bookingsHistory = document.getElementById("bookingsHistory");
-
+let userNameOrPasswordError = document.getElementById('userNameOrPasswordError')
+let loginPage = document.getElementById('loginPage')
+let collapsibleBookingsMenu = document.getElementsByClassName("collapsible-bookings-menu");
 
 
 
+// this is waht allows my bookings menu to collapse.  need to refactor for loop
 let i;
 for (i = 0; i < collapsibleBookingsMenu.length; i++) {
 collapsibleBookingsMenu[i].addEventListener('click', function() {
@@ -65,19 +60,9 @@ collapsibleBookingsMenu[i].addEventListener('click', function() {
         bookingsHistory.style.display = "none";
     } else {
         bookingsHistory.style.display = "block";
-
     }
-
 })
 }
-
-
-
-
-
-
-
-
 
 //event listeners
 // bookingsButton.addEventListener('click', showBookingsSection);
@@ -86,6 +71,36 @@ bookARoomButton.addEventListener('click', showBookARoomSection);
 datePickerInput.addEventListener('change', captureDate)
 roomTypeSelect.addEventListener('change', filterByType)
 goBack.addEventListener('click', goBacktoMain)
+loginSubmit.addEventListener('click', login)
+
+
+
+function login(event) {
+    event.preventDefault()
+    let customerLoginId = userLoginName.value.split('r')[1]
+    let integerifycustomerLoginID = parseInt(customerLoginId)
+    customerNumber = (integerifycustomerLoginID-1)
+    allCustomers.find(customer =>{
+        if(customer.userID === integerifycustomerLoginID && userPassword.value === "overlook2021" ){
+            hide(userNameOrPasswordError)
+            hide(loginPage)
+            show(homeSection)
+            show(userNameWelcome)
+            displayCustomerName(customerNumber)  
+        } else if (customer.userID !== integerifycustomerLoginID || userPassword.value !== "overlook2021" || integerifycustomerLoginID === " " || userPassword.value === " " ||integerifycustomerLoginID === undefined ||  userPassword.value === undefined || integerifycustomerLoginID === NaN) {
+            show(userNameOrPasswordError)
+        }
+    }
+    )
+}
+
+function displayCustomerName(customerNumber) {
+    currentCustomer = hotel.customers[customerNumber]
+    userNameWelcome.innerHTML = `<p> Welcome ${currentCustomer.name}</p> 
+    <p>Total amount spent on rooms ${hotel.customerBillingStatments(currentCustomer)}</p>
+    <li class="hidden">${currentCustomer.userID}</li>`
+    renderDashboard(currentCustomer)
+}
 
 function handleButtons(event) {
     switch (event.target.id) {
@@ -119,18 +134,12 @@ function updateBookingsData(booking) {
     .then(bookingsData => { 
         confirmBooking()
         hotel = new Hotel(allRooms, allCustomers, bookingsData.bookings)
-        displayCustomerName()
+        displayCustomerName(customerNumber)
     }))
     .catch(error => homeSection.innerHTML += `<p>${error.message}</p>`)
 }
 
-function displayCustomerName() {
-    currentCustomer = hotel.customers[2]
-    userNameWelcome.innerHTML = `<p> Welcome ${currentCustomer.name}</p> 
-    <p>Total amount spent on rooms ${hotel.customerBillingStatments(currentCustomer)}</p>
-    <li class="hidden">${currentCustomer.userID}</li>`
-    renderDashboard(currentCustomer)
-}
+
 
 function captureDate() {
     show(displayAvailableRoomsForSelectedDate)

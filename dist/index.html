@@ -7,20 +7,35 @@
   <title>Webpack Starter Kit</title>
 </head>
 <body>
-  <section class="heading-container">
+
+  <section class="heading-container ">
     <div class="heading">
       <div class="heading-right-side-button-container">
         <button class="hidden home-button" id="homeButton">Home</button>
       </div>
       <img src="./images/hotel-icon.png" alt="hotel logo" class="logo">
       <div class="heading-left-side-button-container ">
-        <p class="user-name" id="userNameWelcome">`Welcome ${user}`</p>
-      
+        <p class="user-name hidden" id="userNameWelcome">`Welcome ${user}`</p>
       </div>
     </div>
   </section>
 
-  <section class="home-section " id="homeSection">
+
+  <section class="login-page" id="loginPage">
+    <form action="login-form">
+      <h1>Welcome to the Overlook Hotel</h1>
+      <h2>Login</h2>
+      <label for="userNameInput">User Name</label>
+      <input type="text" id="userLoginName" placeholder="Enter Username">
+      <label for="passwordInput">Password</label>
+      <input type="password" id="userPassword" placeholder="Enter Password">
+      <button class="submit-login" id="loginSubmit">Login</button>
+      <p class="user-name-or-password-error hidden" id="userNameOrPasswordError">Username or password are incorrect.  Please try again.</p>
+    </form>
+  </section>
+
+
+  <section class="home-section hidden" id="homeSection">
     <div class="customer-dashboard-container">
       <button type="button" class="collapsible-bookings-menu" id="collapsibleBookingsMenu">View Your Bookings</button>
        <div class="your-bookings-history" id="bookingsHistory">
@@ -52,9 +67,6 @@
       </section>
     </section>
   </section>
-
-
-
   <script src="bundle.js"></script>
 </body>
 </html>
