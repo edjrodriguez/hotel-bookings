@@ -27,11 +27,12 @@ class Hotel {
     }
       
     filterAvailableRoomsByType(type){ 
+        // console.log(this.availableRoomObjects)
         if(type === 'room types'){
             return this.availableRoomObjects
         } else {
             return this.availableRoomObjects.reduce((acc, currRoom) => {
-                if(currRoom.type === type) {
+                if(currRoom.roomType === type) {
                     this.roomByType.push(currRoom)
                     acc.push(currRoom)
                 } 
@@ -40,28 +41,8 @@ class Hotel {
         }
     }
 
-    // filterAvailableRoomsByType(type){ 
-    //     console.log('hello', type)
-    //     console.log(this.availableRoomObjects)
-    //     if(type === 'All available rooms'){
-    //         return this.availableRoomObjects
-    //     } else {
-    //         return this.availableRoomObjects.reduce((acc, currRoom) => {
-    //             if(currRoom.type !== type ) {
-    //                 return "We apologize but this room type is not availble for your selected date.  Please pick a different room type or a different date"
-    //             } else if(currRoom.type === type) {
-    //                 this.roomByType.push(currRoom)
-    //                 acc.push(currRoom)
-    //             }
-    //             return acc
-    //         }, [])
-    //     }
-    // }
-
-
     makeBooking(customer, roomNumber, date) {
         let booking;
-        console.log('lost', customer)
       return booking = new Booking(customer, roomNumber, date) 
     }
 

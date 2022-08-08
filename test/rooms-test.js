@@ -30,9 +30,9 @@ describe('Room', function() {
   });
 
   it('should have a room type', function() {
-    expect(room1.type).to.equal('residential suite')
-    expect(room2.type).to.equal('suite')
-    expect(room4.type).to.equal('single room')
+    expect(room1.roomType).to.equal('residential suite')
+    expect(room2.roomType).to.equal('suite')
+    expect(room4.roomType).to.equal('single room')
   });
 
   it('should indicate if it has a bidet', function() {

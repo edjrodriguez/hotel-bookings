@@ -27,7 +27,7 @@ describe('Hotel', function() {
         hotel = new Hotel(allRooms, allCustomers, sampleBookingsData.bookings);
     });
     
-    it('Should be a function', function(){
+  it('Should be a function', function(){
     expect(Hotel).to.be.a('function');
   });
 
@@ -116,158 +116,261 @@ describe('Hotel', function() {
     expect(hotel.notAvailableRoomNumbers).to.deep.equal([])
   });
 
-  it.only('Should be able to filter available rooms by selected date 1 "2022/04/20', function() {
+  it('Should be able to filter available rooms by selected date 1 "2022/04/20', function() {
     expect(hotel.getVacantRoomsByDate(selectedDate1)).to.deep.equal([
       {
-        number: 12,
-        type: 'single room',
-        bidet: false,
-        bedSize: 'twin',
-        numBeds: 2,
-        costPerNight: 172.09
+      number: 1,
+      roomType: "residential suite",
+      bidet: true,
+      bedSize: "queen",
+      numBeds: 1,
+      costPerNight: 358.4
       },
       {
-        number: 14,
-        type: 'residential suite',
-        bidet: false,
-        bedSize: 'twin',
-        numBeds: 1,
-        costPerNight: 457.88
+      number: 2,
+      roomType: "suite",
+      bidet: false,
+      bedSize: "full",
+      numBeds: 2,
+      costPerNight: 477.38
       },
       {
-        number: 9,
-        type: 'single room',
+      number: 3,
+      roomType: "single room",
+      bidet: false,
+      bedSize: "king",
+      numBeds: 1,
+      costPerNight: 491.14
+      },
+      {
+      number: 4,
+      roomType: "single room",
+      bidet: false,
+      bedSize: "queen",
+      numBeds: 1,
+      costPerNight: 429.44
+      },
+      {
+      number: 5,
+      roomType: "single room",
+      bidet: true,
+      bedSize: "queen",
+      numBeds: 2,
+      costPerNight: 340.17
+      },
+      {
+      number: 6,
+      roomType: "junior suite",
+      bidet: true,
+      bedSize: "queen",
+      numBeds: 1,
+      costPerNight: 397.02
+      },
+      {
+      number: 8,
+      roomType: "junior suite",
+      bidet: false,
+      bedSize: "king",
+      numBeds: 1,
+      costPerNight: 261.26
+      },
+      {
+      number: 9,
+      roomType: "single room",
+      bidet: true,
+      bedSize: "queen",
+      numBeds: 1,
+      costPerNight: 200.39
+      },
+      {
+      number: 10,
+      roomType: "suite",
+      bidet: false,
+      bedSize: "twin",
+      numBeds: 1,
+      costPerNight: 497.64
+      },
+      {
+      number: 11,
+      roomType: "single room",
+      bidet: true,
+      bedSize: "twin",
+      numBeds: 2,
+      costPerNight: 207.24
+      },
+      {
+      number: 13,
+      roomType: "single room",
+      bidet: false,
+      bedSize: "queen",
+      numBeds: 2,
+      costPerNight: 423.92
+      },
+      {
+      number: 14,
+      roomType: "residential suite",
+      bidet: false,
+      bedSize: "twin",
+      numBeds: 1,
+      costPerNight: 457.88
+      },
+      {
+      number: 16,
+      roomType: "single room",
+      bidet: false,
+      bedSize: "full",
+      numBeds: 2,
+      costPerNight: 325.6
+      },
+      {
+      number: 17,
+      roomType: "junior suite",
+      bidet: false,
+      bedSize: "twin",
+      numBeds: 2,
+      costPerNight: 328.15
+      },
+      {
+      number: 18,
+      roomType: "junior suite",
+      bidet: false,
+      bedSize: "king",
+      numBeds: 2,
+      costPerNight: 496.41
+      },
+      {
+      number: 19,
+      roomType: "single room",
+      bidet: false,
+      bedSize: "queen",
+      numBeds: 1,
+      costPerNight: 374.67
+      },
+      {
+      number: 20,
+      roomType: "residential suite",
+      bidet: false,
+      bedSize: "queen",
+      numBeds: 1,
+      costPerNight: 343.95
+      },
+      {
+      number: 21,
+      roomType: "single room",
+      bidet: false,
+      bedSize: "full",
+      numBeds: 2,
+      costPerNight: 429.32
+      },
+      {
+      number: 22,
+      roomType: "single room",
+      bidet: false,
+      bedSize: "full",
+      numBeds: 2,
+      costPerNight: 350.31
+      },
+      {
+      number: 23,
+      roomType: "residential suite",
+      bidet: false,
+      bedSize: "queen",
+      numBeds: 2,
+      costPerNight: 176.36
+      },
+      {
+        number: 25,
+        roomType: "single room",
         bidet: true,
-        bedSize: 'queen',
+        bedSize: "queen",
         numBeds: 1,
-        costPerNight: 200.39
-      },
-      {
-        number: 5,
-        type: 'single room',
-        bidet: true,
-        bedSize: 'queen',
-        numBeds: 2,
-        costPerNight: 340.17
-      },
-      {
-        number: 13,
-        type: 'single room',
-        bidet: false,
-        bedSize: 'queen',
-        numBeds: 2,
-        costPerNight: 423.92
-      },
-     {
-        number: 18,
-        type: 'junior suite',
-        bidet: false,
-        bedSize: 'king',
-        numBeds: 2,
-        costPerNight: 496.41
+        costPerNight: 305.85
       }
-    ])
-  
+    ])   
   });
 
-  it('Should be able to filter available rooms by selected date 2 "2022/10/31', function() {
-  expect(hotel.getVacantRoomsByDate(selectedDate2)).to.deep.equal([
-    {
-    number: 15,
-    type: 'residential suite',
-    bidet: false,
-    bedSize: 'full',
-    numBeds: 1,
-    costPerNight: 294.56
-  },
-   {
-    number: 24,
-    type: 'suite',
-    bidet: false,
-    bedSize: 'queen',
-    numBeds: 1,
-    costPerNight: 327.24
-  },
-  {
-    number: 12,
-    type: 'single room',
-    bidet: false,
-    bedSize: 'twin',
-    numBeds: 2,
-    costPerNight: 172.09
-  },
-  {
-    number: 7,
-    type: 'single room',
-    bidet: false,
-    bedSize: 'queen',
-    numBeds: 2,
-    costPerNight: 231.46
-  },
-  {
-    number: 13,
-    type: 'single room',
-    bidet: false,
-    bedSize: 'queen',
-    numBeds: 2,
-    costPerNight: 423.92
-  },
-   {
-    number: 18,
-    type: 'junior suite',
-    bidet: false,
-    bedSize: 'king',
-    numBeds: 2,
-    costPerNight: 496.41
-  }])
-});
 
-  it('should be able to add Rooms to the available room numbers', function() {
+
+  it('should be able to add Rooms to the not available room numbers', function() {
     hotel.getVacantRoomsByDate(selectedDate1)
-    expect(hotel.notAvailableRoomNumbers).to.deep.equal([12, 14, 9, 5, 13, 18 ])
+    expect(hotel.notAvailableRoomNumbers).to.deep.equal([15, 24, 12, 7 ])
   });
 
-  it('Should be able to filter available rooms by residential type', function() {
-    hotel.getVacantRoomsByDate(selectedDate2)
+
+  it('Should be able to filter available rooms by residential suite type', function() {
+    hotel.getVacantRoomsByDate(selectedDate1)
     expect(hotel.filterAvailableRoomsByType("residential suite")).to.deep.equal([
       {
-        number: 15,
-        type: 'residential suite',
-        bidet: false,
-        bedSize: 'full',
-        numBeds: 1,
-        costPerNight: 294.56
-      }
+      number: 1,
+      roomType: "residential suite",
+      bidet: true,
+      bedSize: "queen",
+      numBeds: 1,
+      costPerNight: 358.4
+      }, 
+      {
+      number: 14,
+      roomType: "residential suite",
+      bidet: false,
+      bedSize: "twin",
+      numBeds: 1,
+      costPerNight: 457.88
+      },
+      {
+      number: 20,
+      roomType: "residential suite",
+      bidet: false,
+      bedSize: "queen",
+      numBeds: 1,
+      costPerNight: 343.95
+      },
+      {
+      number: 23,
+      roomType: "residential suite",
+      bidet: false,
+      bedSize: "queen",
+      numBeds: 2,
+      costPerNight: 176.36
+      },  
+
     ])
   });
 
-  it('Should be able to filter available rooms by single room type', function() {
+  it('Should be able to filter available rooms by junior suite type', function() {
     hotel.getVacantRoomsByDate(selectedDate2)
-    expect(hotel.filterAvailableRoomsByType("single room")).to.deep.equal([
+    expect(hotel.filterAvailableRoomsByType("junior suite")).to.deep.equal([
       {
-        number: 12,
-        type: 'single room',
-        bidet: false,
-        bedSize: 'twin',
-        numBeds: 2,
-        costPerNight: 172.09
-      },
-       {
-        number: 7,
-        type: 'single room',
-        bidet: false,
-        bedSize: 'queen',
-        numBeds: 2,
-        costPerNight: 231.46
+      number: 6,
+      roomType: "junior suite",
+      bidet: true,
+      bedSize: "queen",
+      numBeds: 1,
+      costPerNight: 397.02
+      }, 
+      {
+      number: 8,
+      roomType: "junior suite",
+      bidet: false,
+      bedSize: "king",
+      numBeds: 1,
+      costPerNight: 261.26
       },
       {
-        number: 13,
-        type: 'single room',
-        bidet: false,
-        bedSize: 'queen',
-        numBeds: 2,
-        costPerNight: 423.92
-      }
+      number: 17,
+      roomType: "junior suite",
+      bidet: false,
+      bedSize: "twin",
+      numBeds: 2,
+      costPerNight: 328.15
+      },
+      {
+      number: 18,
+      roomType: "junior suite",
+      bidet: false,
+      bedSize: "king",
+      numBeds: 2,
+      costPerNight: 496.41
+      },
     ])
   });
 
@@ -275,41 +378,35 @@ describe('Hotel', function() {
     customer1 = new Customer(sampleCustomersData.customers[0]);
     let roomSelection = hotel.getVacantRoomsByDate(selectedDate2)[2]
     expect(hotel.makeBooking(customer1, roomSelection, selectedDate2 )).to.deep.equal(
-      { userID: 1, date: '2022/10/31', roomNumber: 12 })
+      { userID: 1, date: '2022/10/31', roomNumber: 3 })
   });
 
   it('should make a list of booking confirmations for each customer', function() {
     customer1 = new Customer(sampleCustomersData.customers[0]);
-
-    expect(hotel.generateBookingConfirmation(customer1)).to.deep.equal(
-      [
-        {
-          confirmationID: '5fwrgu4i7k55hl6sz',
-          userID: 1,
-          date: '2022/04/20',
-          roomNumber: 15
-        },
-         {
-          confirmationID: '5fwrgu4i7k55hl6t8',
-          userID: 1,
-          date: '2022/10/31',
-          roomNumber: 12
-        },
-         {
-          confirmationID: '5fwrgu4i7k55hl6tc',
-          userID: 1,
-          date: '2022/07/04',
-          roomNumber: 13
-        }
-      ]
-    )
+    expect(hotel.generateBookingConfirmation(customer1)).to.deep.equal([
+      {
+      confirmationID: '5fwrgu4i7k55hl6sz',
+      userID: 1,
+      date: '2022/04/20',
+      roomNumber: 15
+      },
+      {
+      confirmationID: '5fwrgu4i7k55hl6t8',
+      userID: 1,
+      date: '2022/10/31',
+      roomNumber: 12
+      },
+      {
+      confirmationID: '5fwrgu4i7k55hl6tc',
+      userID: 1,
+      date: '2022/07/04',
+      roomNumber: 13
+      }
+    ])
   });
   
-it('should keep track of how much a customer has spent on rooms', function() {
-  expect(hotel.customerBillingStatments(customer1)).to.equal('890.57')
-});
-
-
-
+  it('should keep track of how much a customer has spent on rooms', function() {
+    expect(hotel.customerBillingStatments(customer1)).to.equal('890.57')
+  });
 });
 
