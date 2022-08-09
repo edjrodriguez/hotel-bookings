@@ -10,11 +10,12 @@
 <body>
   <section class="heading-container ">
       <img src="./images/hotel-icon.png" alt="hotel logo" class="logo">
-      <div class="user-name-banner" id="userNameWelcome">`Welcome ${user}`</div>
+      <button class="log-out-button hidden" id="logOutButton">Logout</button>
+      <div class="user-name-banner hidden" id="userNameWelcome">`Welcome ${user}`</div>
   </section>
 
 
-  <section class="login-page hidden" id="loginPage">
+  <section class="login-page " id="loginPage">
     <form action="login-form">
       <h1 class="login-welcome-message">Welcome to the Overlook Hotel</h1>
 
@@ -28,7 +29,7 @@
   </section>
 
 
-  <section class="home-section " id="homeSection">
+  <section class="home-section hidden" id="homeSection">
     <div class="customer-dashboard-container">
       <button type="button" class="collapsible-bookings-menu" id="collapsibleBookingsMenu">Show Your Bookings</button>
        <section class="your-bookings-history" id="bookingsHistory">
