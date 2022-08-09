@@ -3,8 +3,8 @@ import { fetchData } from './apiCalls';
 import Customer from '../src/classes/Customer';
 import Room from '../src/classes/Room';
 import Hotel from '../src/classes/Hotel';
-import './images/hotel-icon.png'
 import './images/hotel-carpet.png'
+import './images/hotel-icon.png'
 
 //global
 let hotel;
