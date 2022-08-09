@@ -31,9 +31,9 @@
   <section class="home-section " id="homeSection">
     <div class="customer-dashboard-container">
       <button type="button" class="collapsible-bookings-menu" id="collapsibleBookingsMenu">View Your Bookings</button>
-       <div class="your-bookings-history" id="bookingsHistory">
-        <p class="your-bookings" id="yourBookings"></p>
-      </div>
+       <section class="your-bookings-history" id="bookingsHistory">
+        <div class="your-bookings" id="yourBookings"></div>
+       </section>
     </div>
     <section class="book-a-room-container">
       <h1 class="hidden" id="bookingConfirmedMessage">Booking Confirmed!  We'll see ya soon.  
@@ -41,13 +41,9 @@
       </h1>
       <button class="book-a-room-button " id="bookARoomButton">Book A Room</button>
       <section class="book-a-room-section hidden" id ="bookARoomSection">
-        <h1 class="pick-a-date" id="pickADate">Pick a date to book your room 
-          <div class="go-back-button-container"> 
-            <button class="go-back-button " id="goBack">Back to main</button>
-          </div>
-        </h1>
+        <section class="pick-a-date pick-a-date-container"  id="pickADate"></section>
         <input class="date-picker" type="date" name="date-picker" id="datePickerInput">
-        <label class="hidden" id="filterByTypeSection" for="roomTypeSelect">Filter Rooms by Type
+        <label class="hidden filter-by-type-menu" id="filterByTypeMenu" for="roomTypeSelect">Filter Rooms by Type
           <select name="room-type" class="room-type " id="roomTypeSelect" aria-placeholder="">
             <option value="room types" default selected>All rooms</option>
             <option value="single room">Single Room</option>
