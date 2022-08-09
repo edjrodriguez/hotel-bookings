@@ -8,41 +8,32 @@
   <title>Webpack Starter Kit</title>
 </head>
 <body>
-
   <section class="heading-container ">
-    <div class="heading">
-      <div class="heading-right-side-button-container">
-        <button class="hidden home-button" id="homeButton">Home</button>
-      </div>
       <img src="./images/hotel-icon.png" alt="hotel logo" class="logo">
-      <div class="heading-left-side-button-container ">
-        <p class="user-name hidden" id="userNameWelcome">`Welcome ${user}`</p>
-      </div>
-    </div>
+      <div class="user-name-banner" id="userNameWelcome">`Welcome ${user}`</div>
   </section>
 
 
-  <section class="login-page" id="loginPage">
+  <section class="login-page hidden" id="loginPage">
     <form action="login-form">
-      <h1>Welcome to the Overlook Hotel</h1>
-      <h2>Login</h2>
-      <label for="userNameInput">User Name</label>
-      <input type="text" id="userLoginName" placeholder="Enter Username">
-      <label for="passwordInput">Password</label>
-      <input type="password" id="userPassword" placeholder="Enter Password">
+      <h1 class="login-welcome-message">Welcome to the Overlook Hotel</h1>
+
+      <label class="label-user-name-input"for="userNameInput">User Name</label>
+      <input type="text" class="enter-username" id="userLoginName" placeholder="Enter Username">
+      <label class="label-user-password-input"for="passwordInput">Password</label>
+      <input class="enter-password" type="password" id="userPassword" placeholder="Enter Password">
       <button class="submit-login" id="loginSubmit">Login</button>
       <p class="user-name-or-password-error hidden" id="userNameOrPasswordError">Username or password are incorrect.  Please try again.</p>
     </form>
   </section>
 
 
-  <section class="home-section hidden" id="homeSection">
+  <section class="home-section " id="homeSection">
     <div class="customer-dashboard-container">
       <button type="button" class="collapsible-bookings-menu" id="collapsibleBookingsMenu">View Your Bookings</button>
-       <div class="your-bookings-history" id="bookingsHistory">
-        <!-- <h1 class="your-bookings-heading">Your bookings</h1> -->
-        <p class="your-bookings" id="yourBookings"></p>
-      </div>
+       <section class="your-bookings-history" id="bookingsHistory">
+        <div class="your-bookings" id="yourBookings"></div>
+       </section>
     </div>
     <section class="book-a-room-container">
       <h1 class="hidden" id="bookingConfirmedMessage">Booking Confirmed!  We'll see ya soon.  
@@ -50,9 +41,9 @@
       </h1>
       <button class="book-a-room-button " id="bookARoomButton">Book A Room</button>
       <section class="book-a-room-section hidden" id ="bookARoomSection">
-        <h1 id="pickADate">Pick a date to book your room                                <button class="go-back-button " id="goBack">Back to main</button></h1>
-        <input type="date" name="date-picker" id="datePickerInput">
-        <label class="hidden" id="filterByTypeSection" for="">Filter Rooms by Type
+        <section class="pick-a-date pick-a-date-container"  id="pickADate"></section>
+        <input class="date-picker" type="date" name="date-picker" id="datePickerInput">
+        <label class="hidden filter-by-type-menu" id="filterByTypeMenu" for="roomTypeSelect">Filter Rooms by Type
           <select name="room-type" class="room-type " id="roomTypeSelect" aria-placeholder="">
             <option value="room types" default selected>All rooms</option>
             <option value="single room">Single Room</option>
