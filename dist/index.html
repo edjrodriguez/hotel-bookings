@@ -30,21 +30,24 @@
 
   <section class="home-section " id="homeSection">
     <div class="customer-dashboard-container">
-      <button type="button" class="collapsible-bookings-menu" id="collapsibleBookingsMenu">View Your Bookings</button>
+      <button type="button" class="collapsible-bookings-menu" id="collapsibleBookingsMenu">Show Your Bookings</button>
        <section class="your-bookings-history" id="bookingsHistory">
         <div class="your-bookings" id="yourBookings"></div>
        </section>
     </div>
     <section class="book-a-room-container">
-      <h1 class="hidden" id="bookingConfirmedMessage">Booking Confirmed!  We'll see ya soon.  
-        See the YOUR BOOKINGS section for confirmation number and date of your upcoming stay!
-      </h1>
+      <section class="hidden booking-confirmed-message-container" id="bookingConfirmedMessage">
+        <h1 class="booking-confirmed-message">Booking Confirmed! </h1>
+        
+       <p class="booking-confirmed-see-bookings"> Visit SHOW YOUR BOOKINGS for confirmation number and DATE of your upcoming stay!</p>
+      </section>
       <button class="book-a-room-button " id="bookARoomButton">Book A Room</button>
       <section class="book-a-room-section hidden" id ="bookARoomSection">
         <section class="pick-a-date pick-a-date-container"  id="pickADate"></section>
         <input class="date-picker" type="date" name="date-picker" id="datePickerInput">
-        <label class="hidden filter-by-type-menu" id="filterByTypeMenu" for="roomTypeSelect">Filter Rooms by Type
-          <select name="room-type" class="room-type " id="roomTypeSelect" aria-placeholder="">
+        <div class="filter-and-avail-rooms-style-box">
+        <label class="hidden filter-by-type-menu" id="filterByTypeMenu" for="roomTypeSelect">Filter by room type
+          <select name="room-type-menu" class="room-type-menu " id="roomTypeSelect" >
             <option value="room types" default selected>All rooms</option>
             <option value="single room">Single Room</option>
             <option value="suite">Suite</option>
@@ -52,7 +55,8 @@
             <option value="residential suite">Residential Suite</option>
           </select>
        </label>
-        <div id="numberOfRoomsAvailable"></div>
+        <div class="num-rms-avail" id="numberOfRoomsAvailable"></div>
+        </div>
         <section class="book-a-room-display hidden" id="displayAvailableRoomsForSelectedDate">
           <section class="display-available-rooms-container"  id="availableRoomsDisplay"></section>
         </section>

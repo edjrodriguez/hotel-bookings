@@ -1,5 +1,5 @@
 *{
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 body {
@@ -122,7 +122,7 @@ margin: 15px;
   width:30%;
   height: 9.5%;
   border-radius: 10px;
-/* margin-bottom: 2px; */
+
   margin-top: 30px;
   font-size: 25px;
 }
@@ -175,22 +175,8 @@ margin: 15px;
 }
 
 
- 
-
-.home-button{
-  width: 100%;
-  height: 25%;
-  background: #3d291e ;
-  font-family: "Georgia";
-  color: white;
-  font-weight: bold;
-  font-size: xx-large;
-}
-
-
-
 .home-section{
-  height: 85%;
+  height: 79.5%;
   width: 98%;
 	display: flex;
 	flex-direction: row;
@@ -212,7 +198,7 @@ margin: 15px;
 }
 
 .customer-dashboard-container {
-  height:100%;
+  height:94%;
   width: 40%;
   display: flex;
   display: flex;
@@ -227,39 +213,55 @@ margin: 15px;
 
 .confirmation-card-container{
   width: 100%;
-  height: 30%;
+  height: 35%;
   background-color: #ced4da;
   margin-bottom: 6%;
   text-align: center;
   font-weight: bold;
   font-family: "Georgia";
+  color: #3d291e;
+  border-radius: 15px;
+  border: #3d291e 5px solid;
+  box-shadow: 3px 3px 3px 3px #757473;
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+
   
 }
 
 .confirmation-card-date{
-  font-size: 90%;
+  border-radius:15px ;
+
+  width: 80%;
+  font-size: 40px;
   margin-bottom: 0%;
+  margin-top: 5%;
   
 }
 .confirmation-card-room-number{
-  font-size: 50%;
+  font-size: 25px;
   margin-top: 1%;
-  margin-bottom: 0;
+  margin-bottom: 2%;
+
   
 }
 
 .confirmation-card-confirmation-number{
-  font-size: 20%;
+  font-size: 15px;
   
 }
 
 .book-a-room-container {
-  height:90%;
+  height:100%;
   width: 50%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   align-content: stretch;
 }
@@ -278,18 +280,134 @@ margin: 15px;
 }
 
 .date-picker{
-  margin-top: 30px;
-  width: 30%;
-  height: 50px;
-  font-size: 30px;
+  margin-top: 5px;
+  width: 50%;
+  height: 17%;
+  font-size: 50px;
   font-weight: bold;
   font-family: "Georgia";
   border: 2px solid #3d291e;
   border-radius: 15px;
+  cursor: pointer;
+}
+
+.filter-and-avail-rooms-style-box {
+  
+  width: 100%;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
 
 }
 
+.num-rms-avail {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Georgia";
+}
 
+.filter-by-type-menu {
+  /* margin-top: 5px; */
+  width: 50%;
+  /* height: 50%; */
+  font-size: 28px;
+  font-weight: bold;
+  font-family: "Georgia";
+  text-align: center;
+  /* border: 2px solid #3d291e; */
+  /* border-radius: 15px; */
+  } 
+
+  .room-type-menu {
+   margin-top:2%;
+   height: 20%;
+   font-size: 25px;
+   font-weight: bold;
+   font-family: "Georgia";
+   border: 2px solid #3d291e;
+   border-radius: 15px;
+   cursor: pointer;
+   }
+
+   .booking-confirmed-message-container {
+    border: 5px solid #3d291e;
+    background-color: #ced4da;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+   font-family: "Georgia";
+   display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+
+   }
+
+   .cannot-find-room {
+    background-color: #f0ead6;
+    border-radius: 15px;
+    /* width: 90%; */
+    /* height: 60%; */
+    text-align: center;
+    color: #3d291e;
+    font-size: 40px;
+    font-weight: bold;
+   font-family: "Georgia";
+
+   }
+
+   .cannot-find-room-more-details {
+    text-align: center;
+    color: #3d291e;
+    font-size: 40px;
+    font-weight: bold;
+   font-family: "Georgia";
+
+   }
+
+   .booking-confirmed-message {
+    border: 3px solid #3d291e;
+    background-color: #f0ead6;
+    border-radius: 15px;
+    width: 90%;
+    height: 30%;
+    text-align: center;
+    color: #3d291e;
+    font-size: 70px;
+    font-weight: bold;
+   font-family: "Georgia";
+
+   }
+
+   .booking-confirmed-see-bookings{
+    text-align: center;
+
+    font-size: 35px;
+    font-weight: bold;
+    color: #3d291e;
+   font-family: "Georgia";
+   }
+
+.search-new-date-btn{
+  cursor: pointer;
+  background: #3d291e ;
+  color: #dadbdb;
+  font-family: "Georgia";
+  font-weight: bold;
+  border-radius: 10px;
+  width: 25%;
+  height: 45%;
+  font-size: 20px;
+  margin-bottom: 3%;
+  cursor: pointer;
+
+}
 
 .go-back-button{
   cursor: pointer;
@@ -300,21 +418,21 @@ margin: 15px;
   width: 30%;
   height: 110%;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
   font-size: 20px;
+  cursor: pointer;
   
 }
 
 .collapsible-bookings-menu {
-  margin-top: px ;
+  margin-bottom: .75% ;
   border-radius: 15px;
   background-color: #3d291e;
   color: #dadbdb;
   cursor: pointer;
   padding: 18px;
   width: 54%;
-  height:17.5%;
-  /* height: %; */
+  height:20.5%;
   border: none;
   outline: none;
   font-family: "Georgia";
@@ -329,9 +447,9 @@ margin: 15px;
 .collapsible-bookings-menu:hover{
   color: #f0ead6; 
   background-color: #3d291e;
-  /* font-size: 45px; */
+ 
   color: #9f7734 ;
-  height:17.5%;
+  margin-bottom: 3%;
   border: 2px solid #9f752b;
   box-shadow: none;
 
@@ -339,7 +457,7 @@ margin: 15px;
 
 
 .your-bookings-history {
-  height: 63%;
+  height: 100%;
   width: 85%;
   padding: 0 18px;
   display: none;
@@ -369,7 +487,7 @@ color: #9f7734 ;
 
 .book-a-room-section{
   width:100%;
-  height: 90%;
+  height: 95%;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -379,9 +497,13 @@ color: #9f7734 ;
 }
 
 .book-a-room-display{
-  width:100%;
-  height: 100%;
+  margin-top: 3%;
+  width:85%;
+  height: 95%;
   overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .go-back-button-container{
@@ -399,7 +521,7 @@ height:100%;
   font-size: xx-large;
   height: 100%;
   margin-top: 0;
-  /* overflow-y: scroll; */
+
 }
 
 .your-bookings-display {
@@ -410,27 +532,50 @@ height:100%;
 .display-available-rooms-container {
   width:100%;
   height: 100%;
-  /* overflow-y: scroll; */
-
 
 }
 
 .available-room-container{ 
-  width: 60%;
+  margin-bottom: 6%;
+  width: 98%;
+  height: 55%;
+  background-color: white;
+  margin-bottom: 6%;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Georgia";
+  color: #3d291e;
+  border-radius: 15px;
+  border: #3d291e 6px solid;
+  box-shadow: 3px 3px 3px 3px #757473;
 
 }
+.make-booking-button {
+  border-radius: 15px;
+  cursor: pointer;
+  width: 45%;
+  height: 20%;
+  background: #3d291e ;
+  font-family: "Georgia";
+  color: #9f7734;
+  font-weight: bold;
+  font-size: 30px;
+}
 
-.past-stays-button-container,
-.upcoming-stays-button-container {
-  
-  width: 15%;
-  height: 80%;
-  display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: stretch;
+.available-room-type {
+  font-size: 30px;
+  margin-top: 0;
+  margin-bottom:2%;
+}
+.available-room-cost {
+  font-size: 25px;
+  margin-top: 0;
+  margin-bottom:3%;
+}
+
+.available-room-details {
+  text-align: left;
+  font-size: 17px;
 
 }
 
