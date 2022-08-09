@@ -36,18 +36,38 @@ let numberOfRoomsAvailable = document.getElementById('numberOfRoomsAvailable')
 let roomTypeSelect = document.getElementById('roomTypeSelect')
 let filterByTypeMenu = document.getElementById('filterByTypeMenu')
 let pickADate = document.getElementById('pickADate')
-let showingRoomsByDate = document.getElementById('showingRoomsByDate')
 let bookingConfirmedMessage = document.getElementById('bookingConfirmedMessage')
 let displayAvailableRoomsForSelectedDate = document.getElementById('displayAvailableRoomsForSelectedDate')
-let goBack = document.getElementById('goBack')
 let logOutButton = document.getElementById('logOutButton')
-
-
 let userNameOrPasswordError = document.getElementById('userNameOrPasswordError')
 let loginPage = document.getElementById('loginPage')
 let collapsibleBookingsMenu = document.getElementsByClassName("collapsible-bookings-menu");
 
-// this is waht allows my bookings menu to collapse.  need to refactor for loop
+//event listeners
+bookARoomSection.addEventListener('click', handleButtons)
+bookARoomButton.addEventListener('click', showBookARoomSection);
+datePickerInput.addEventListener('change', captureDate)
+roomTypeSelect.addEventListener('change', filterByType)
+logOutButton.addEventListener('click', logOut)
+loginSubmit.addEventListener('click', login)
+
+function handleButtons(event) {
+    switch (event.target.id) {
+      case "makeABookingButton":
+        makeABookingWithHotel(event)
+        break;
+      case "searchNewDate":
+        newSearch(event)
+        break;
+      case "goBack":
+        goBacktoMain(event)
+        break;
+    default:
+        break;
+    }
+  };
+
+// this is what allows my bookings menu to collapse.  refactored from tutorial video to match my projects needs.  Could not get rid of for loop with a forEach.  
 let i;
 for (i = 0; i < collapsibleBookingsMenu.length; i++) {
 collapsibleBookingsMenu[i].addEventListener('click', function() {
@@ -63,22 +83,7 @@ collapsibleBookingsMenu[i].addEventListener('click', function() {
 })
 }
 
-
-
-
-
-//event listeners
-// bookingsButton.addEventListener('click', showBookingsSection);
-bookARoomSection.addEventListener('click', handleButtons)
-bookARoomButton.addEventListener('click', showBookARoomSection);
-datePickerInput.addEventListener('change', captureDate)
-roomTypeSelect.addEventListener('change', filterByType)
-logOutButton.addEventListener('click', logOut)
-loginSubmit.addEventListener('click', login)
-
 function logOut() {
-    // userLoginName.value = " ";
-    // userPassword.value = null;
     show(loginPage)
     hide(homeSection)
     hide(logOutButton)
@@ -86,7 +91,6 @@ function logOut() {
     currentCustomer = null;
     hide(userNameOrPasswordError)
 }
-
 
 function login(event) {
     event.preventDefault()
@@ -114,31 +118,13 @@ function resetRoomTypeSelect() {
 }
 
 function displayCustomerName(customerNumber) {
-
     currentCustomer = hotel.customers[customerNumber]
     userNameWelcome.innerHTML = `
-    
     <p class="user-name" id="userNameWelcome"> Welcome, ${currentCustomer.name}</p> 
     <p class="user-amount-spent-on-rooms" id="userHotelTotals">Total amount spent on rooms: $${hotel.customerBillingStatments(currentCustomer)}</p>
     <li class="hidden">${currentCustomer.userID}</li>`
     renderDashboard(currentCustomer)
 }
-
-function handleButtons(event) {
-    switch (event.target.id) {
-      case "makeABookingButton":
-        makeABookingWithHotel(event)
-        break;
-      case "searchNewDate":
-        newSearch(event)
-        break;
-      case "goBack":
-        goBacktoMain(event)
-        break;
-    default:
-        break;
-    }
-  };
 
  function setCurrentDate() {
     let today = new Date().toJSON().slice(0,10)
@@ -243,18 +229,19 @@ function renderAvailableRooms(selectedDate) {
             pickADate.innerHTML = `<h1 class="showing-rooms-by-date" id="showingRoomsByDate">Showing rooms for ${selectedDate} <button class="search-new-date-btn "id="searchNewDate">Search New Date</button></h1>`
             numberOfRoomsAvailable.innerHTML += `<p>Total available rooms: ${availableRoomsByDate.length}</p>`
             availableRoomsByDate.forEach(availableRoom => {
-                availableRoomsDisplay.innerHTML +=  `<div class="available-room-container">
-                <h4 class="available-room-type">Type of Room: ${(availableRoom.roomType.toUpperCase())}</h4>
-                <h4 class="available-room-cost"> Cost Per Night: $${availableRoom.costPerNight.toFixed(2)}</h4>
-                <ul class="available-room-details">
-                    <li>Bed Size: ${availableRoom.bedSize.toUpperCase()}  </li>
-                    <li>Number of Beds: ${availableRoom.numBeds}   </li>
-                    <li>Has bidet: ${availableRoom.bidet}   </li>
-                    <li class="hidden"> ${availableRoom.number} </li>
-                </ul>
-                <div>
-                <button class="make-booking-button" id="makeABookingButton">Book this Room</button>
-                </div>
+                availableRoomsDisplay.innerHTML += 
+                `<div class="available-room-container">
+                    <h4 class="available-room-type">Type of Room: ${(availableRoom.roomType.toUpperCase())}</h4>
+                    <h4 class="available-room-cost"> Cost Per Night: $${availableRoom.costPerNight.toFixed(2)}</h4>
+                        <ul class="available-room-details">
+                            <li>Bed Size: ${availableRoom.bedSize.toUpperCase()}  </li>
+                            <li>Number of Beds: ${availableRoom.numBeds}   </li>
+                            <li>Has bidet: ${availableRoom.bidet}   </li>
+                            <li class="hidden"> ${availableRoom.number} </li>
+                        </ul>
+                        <div>
+                            <button class="make-booking-button" id="makeABookingButton">Book this Room</button>
+                        </div>
                 </div>`
             })
     }
@@ -278,21 +265,22 @@ function filterByType(event) {
          } else {
             availableRoomsDisplay.innerHTML = " "
             numberOfRoomsAvailable.innerHTML = `<p>Total available ${event.target.value}s: ${roomsByType.length}</p>`
-             roomsByType.forEach(room => {
-             availableRoomsDisplay.innerHTML +=  `<div class="available-room-container">
+            roomsByType.forEach(room => {
+            availableRoomsDisplay.innerHTML +=  
+              `<div class="available-room-container">
                  <h4 class="available-room-type">Type of Room: ${room.roomType.toUpperCase()}</h4>
                  <h4 class="available-room-cost"> Cost Per Night: $${room.costPerNight.toFixed(2)}</h4>
-                 <ul class="available-room-details">
-                    <li>Bed Size: ${room.bedSize.toUpperCase()}  </li>
-                    <li>Number of Beds: ${room.numBeds}   </li>
-                    <li> Has bidet: ${room.bidet}   </li>
-                     <li class="hidden"> ${room.number} </li>
-                </ul>
-                    <div>
-                     <button class="make-booking-button" id="makeABookingButton">Book this Room</button>
-                    </div>
-                </div>`
-                })
+                     <ul class="available-room-details">
+                         <li>Bed Size: ${room.bedSize.toUpperCase()}  </li>
+                         <li>Number of Beds: ${room.numBeds}   </li>
+                         <li> Has bidet: ${room.bidet}   </li>
+                         <li class="hidden"> ${room.number} </li>
+                     </ul>
+                 <div>
+                   <button class="make-booking-button" id="makeABookingButton">Book this Room</button>
+                 </div>
+               </div>`
+            })
         }
 }
 
@@ -328,4 +316,3 @@ function show(event) {
 function hide(event) {   
     event.classList.add('hidden')
   };
-

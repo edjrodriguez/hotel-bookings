@@ -7,26 +7,24 @@ import Room from '../src/classes/Room';
 import sampleRoomsData from '../src/data/sampleRooms';
 import Hotel from '../src/classes/Hotel';
 
-
 describe('Hotel', function() { 
-    let allRooms;
-    let allCustomers;
-    let hotel;
-    let customer1;
-    let selectedDate1 = "2022/04/20" 
-    let selectedDate2 = "2022/10/31" 
+  let allRooms;
+  let allCustomers;
+  let hotel;
+  let customer1;
+  const selectedDate1 = "2022/04/20" 
+  const selectedDate2 = "2022/10/31" 
 
-    beforeEach(() => {
-        
-        allRooms = sampleRoomsData.rooms.map(room => {
-            return new Room(room)
-        })
-        allCustomers = sampleCustomersData.customers.map(customer => {
-            return new Customer(customer)
-        })
-        hotel = new Hotel(allRooms, allCustomers, sampleBookingsData.bookings);
-    });
-    
+  beforeEach(() => {
+    allRooms = sampleRoomsData.rooms.map(room => {
+      return new Room(room)
+    })
+    allCustomers = sampleCustomersData.customers.map(customer => {
+      return new Customer(customer)
+    })
+    hotel = new Hotel(allRooms, allCustomers, sampleBookingsData.bookings);
+  });       
+
   it('Should be a function', function(){
     expect(Hotel).to.be.a('function');
   });
@@ -295,7 +293,6 @@ describe('Hotel', function() {
     hotel.getVacantRoomsByDate(selectedDate1)
     expect(hotel.notAvailableRoomNumbers).to.deep.equal([15, 24, 12, 7 ])
   });
-
 
   it('Should be able to filter available rooms by residential suite type', function() {
     hotel.getVacantRoomsByDate(selectedDate1)

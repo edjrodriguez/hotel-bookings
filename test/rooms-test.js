@@ -3,17 +3,16 @@ const expect = chai.expect;
 import sampleRoomsData from '../src/data/sampleRooms';
 import Room from '../src/classes/Room';
 
-
 describe('Room', function() { 
-    let room1;
-    let room2;
-    let room4;
+  let room1;
+  let room2;
+  let room4;
 
-    beforeEach(() => {
-        room1 = new Room(sampleRoomsData.rooms[0]);
-        room2 = new Room(sampleRoomsData.rooms[1]);
-        room4 = new Room(sampleRoomsData.rooms[3]);
-     });
+  beforeEach(() => {
+    room1 = new Room(sampleRoomsData.rooms[0]);
+    room2 = new Room(sampleRoomsData.rooms[1]);
+    room4 = new Room(sampleRoomsData.rooms[3]);
+  });
 
   it('Should be a function', function(){
     expect(Room).to.be.a('function');

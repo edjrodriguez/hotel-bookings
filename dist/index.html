@@ -13,13 +13,10 @@
       <button class="log-out-button hidden" id="logOutButton">Logout</button>
       <div class="user-name-banner hidden" id="userNameWelcome">`Welcome ${user}`</div>
   </section>
-
-
   <section class="login-page " id="loginPage">
     <form action="login-form">
       <h1 class="login-welcome-message">Welcome to the Overlook Hotel</h1>
-
-      <label class="label-user-name-input"for="userNameInput">User Name</label>
+      <label class="label-user-name-input"for="userNameInput">Username</label>
       <input type="text" class="enter-username" id="userLoginName" placeholder="Enter Username">
       <label class="label-user-password-input"for="passwordInput">Password</label>
       <input class="enter-password" type="password" id="userPassword" placeholder="Enter Password">
@@ -27,24 +24,23 @@
       <p class="user-name-or-password-error hidden" id="userNameOrPasswordError">Username or password are incorrect.  Please try again.</p>
     </form>
   </section>
-
-
   <section class="home-section hidden" id="homeSection">
     <div class="customer-dashboard-container">
       <button type="button" class="collapsible-bookings-menu" id="collapsibleBookingsMenu">Show Your Bookings</button>
        <section class="your-bookings-history" id="bookingsHistory">
-        <div class="your-bookings" id="yourBookings"></div>
+        <div class="your-bookings" id="yourBookings">
+        </div>
        </section>
     </div>
     <section class="book-a-room-container">
       <section class="hidden booking-confirmed-message-container" id="bookingConfirmedMessage">
-        <h1 class="booking-confirmed-message">Booking Confirmed! </h1>
-        
+        <h1 class="booking-confirmed-message">Booking Confirmed! </h1> 
        <p class="booking-confirmed-see-bookings"> Visit SHOW YOUR BOOKINGS for confirmation number and DATE of your upcoming stay!</p>
       </section>
       <button class="book-a-room-button " id="bookARoomButton">Book A Room</button>
       <section class="book-a-room-section hidden" id ="bookARoomSection">
-        <section class="pick-a-date pick-a-date-container"  id="pickADate"></section>
+        <section class="pick-a-date pick-a-date-container"  id="pickADate">          
+        </section>
         <input class="date-picker" type="date" name="date-picker" id="datePickerInput">
         <div class="filter-and-avail-rooms-style-box">
         <label class="hidden filter-by-type-menu" id="filterByTypeMenu" for="roomTypeSelect">Filter by room type

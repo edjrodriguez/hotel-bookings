@@ -1,18 +1,15 @@
 import chai from 'chai';
 const expect = chai.expect;
-import sampleCustomersData from '../src/data/sampleCustomers';
 import sampleBookingsData from '../src/data/sampleBookings';
 import BookingConfirmation from '../src/classes/BookingConfirmation';
-import Customer from '../src/classes/Customer';
-import Room from '../src/classes/Room';
 
 
 describe('BookingConfirmation', function() { 
-    let bookingConfirmation1;
+  let bookingConfirmation1;
 
-    beforeEach(() => {
-      bookingConfirmation1 = new BookingConfirmation(sampleBookingsData.bookings[0]);
-     });
+  beforeEach(() => {
+    bookingConfirmation1 = new BookingConfirmation(sampleBookingsData.bookings[0]);
+  });
 
   it('Should be a function', function(){
     expect(BookingConfirmation).to.be.a('function');

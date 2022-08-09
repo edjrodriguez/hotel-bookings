@@ -1,7 +1,3 @@
-*{
-  /* border: 1px solid red; */
-}
-
 body {
   margin-top: 0;
   background: #f0ead6; 
@@ -119,7 +115,7 @@ margin: 15px;
   margin-top: 30px;
   font-size: 25px;
   cursor: pointer;
-  box-shadow: 3px 3px 3px 3px #757473;
+  box-shadow: 2px 2px 2px 2px #757473;
 }
 
 .your-bookings-heading {
@@ -198,7 +194,6 @@ margin: 15px;
 	align-items: center;
 	align-content: center;
   margin-left: 150px;
-  
 }
 
 .confirmation-card-container{
