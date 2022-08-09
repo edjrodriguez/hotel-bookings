@@ -18,6 +18,7 @@ Promise.all([fetchData('rooms'), fetchData('bookings'), fetchData('customers')])
     allRooms = roomsData.rooms.map(room=> {return new Room(room)})
     allCustomers = customersData.customers.map(customer => {return new Customer(customer)})
     hotel = new Hotel(allRooms, allCustomers, bookingsData.bookings)
+    displayCustomerName()
     setCurrentDate()
 })
 
@@ -40,7 +41,7 @@ let showingRoomsByDate = document.getElementById('showingRoomsByDate')
 let bookingConfirmedMessage = document.getElementById('bookingConfirmedMessage')
 let displayAvailableRoomsForSelectedDate = document.getElementById('displayAvailableRoomsForSelectedDate')
 let goBack = document.getElementById('goBack')
-let logOutButton = document.getElementById('logOutButton')
+// let logOutButton = document.getElementById('logOutButton')
 
 
 let userNameOrPasswordError = document.getElementById('userNameOrPasswordError')
@@ -73,41 +74,41 @@ bookARoomSection.addEventListener('click', handleButtons)
 bookARoomButton.addEventListener('click', showBookARoomSection);
 datePickerInput.addEventListener('change', captureDate)
 roomTypeSelect.addEventListener('change', filterByType)
-logOutButton.addEventListener('click', logOut)
-loginSubmit.addEventListener('click', login)
+// logOutButton.addEventListener('click', logOut)
+// loginSubmit.addEventListener('click', login)
 
-function logOut() {
-    // userLoginName.value = " ";
-    // userPassword.value = null;
-    show(loginPage)
-    hide(homeSection)
-    hide(logOutButton)
-    hide(userNameWelcome)
-    currentCustomer = null;
-    hide(userNameOrPasswordError)
-}
+// function logOut() {
+//     // userLoginName.value = " ";
+//     // userPassword.value = null;
+//     show(loginPage)
+//     hide(homeSection)
+//     hide(logOutButton)
+//     hide(userNameWelcome)
+//     currentCustomer = null;
+//     hide(userNameOrPasswordError)
+// }
 
 
-function login(event) {
-    event.preventDefault()
-    let customerLoginId = userLoginName.value.split('r')[1]
-    let integerifycustomerLoginID = parseInt(customerLoginId)
-    customerNumber = (integerifycustomerLoginID-1)
-    allCustomers.find(customer =>{
-        if(customer.userID === integerifycustomerLoginID && userPassword.value === "overlook2021" ){
-            userLoginName.value = null;
-            userPassword.value = null;
-            hide(userNameOrPasswordError)
-            hide(loginPage)
-            show(homeSection)
-            show(logOutButton)
-            show(userNameWelcome)
-            displayCustomerName(customerNumber)  
-        } else if (customer.userID !== integerifycustomerLoginID || userPassword.value !== "overlook2021" || integerifycustomerLoginID === " " || userPassword.value === " " ||integerifycustomerLoginID === undefined ||  userPassword.value === undefined || integerifycustomerLoginID === NaN) {
-            show(userNameOrPasswordError)
-        }
-    })
-}
+// function login(event) {
+//     event.preventDefault()
+//     let customerLoginId = userLoginName.value.split('r')[1]
+//     let integerifycustomerLoginID = parseInt(customerLoginId)
+//     customerNumber = (integerifycustomerLoginID-1)
+//     allCustomers.find(customer =>{
+//         if(customer.userID === integerifycustomerLoginID && userPassword.value === "overlook2021" ){
+//             userLoginName.value = null;
+//             userPassword.value = null;
+//             hide(userNameOrPasswordError)
+//             hide(loginPage)
+//             show(homeSection)
+//             show(logOutButton)
+//             show(userNameWelcome)
+//             displayCustomerName(customerNumber)  
+//         } else if (customer.userID !== integerifycustomerLoginID || userPassword.value !== "overlook2021" || integerifycustomerLoginID === " " || userPassword.value === " " ||integerifycustomerLoginID === undefined ||  userPassword.value === undefined || integerifycustomerLoginID === NaN) {
+//             show(userNameOrPasswordError)
+//         }
+//     })
+// }
 
 function resetRoomTypeSelect() {
     roomTypeSelect.selectedIndex = 0;                                      
@@ -115,7 +116,7 @@ function resetRoomTypeSelect() {
 
 function displayCustomerName(customerNumber) {
 
-    currentCustomer = hotel.customers[customerNumber]
+    currentCustomer = hotel.customers[2]
     userNameWelcome.innerHTML = `
     
     <p class="user-name" id="userNameWelcome"> Welcome, ${currentCustomer.name}</p> 
