@@ -3,59 +3,180 @@
 }
 
 body {
+  margin-top: 0;
   background: #f0ead6; 
   display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: stretch;
 	align-content: stretch;
   height: 95vh;
-  width: 100vw;
+  width: 98%;
+  border: none;
+  margin: 0;
+  font-family: "Georgia";
 }
 .heading-container{
   border-top: 0;
-  height: 18%;
-  width: 98%;
+  height: 20%;
+  width: 102.5%;
   background-image: url("../images/hotel-carpet.png");
-  background-size: 100%;
-  display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: stretch;
-	align-content: stretch;
-
-}
-
-.your-bookings-heading {
-  font-size: ;
-  justify-content: center;
-}
-.user-name {
-  background-color: #f0ead6;
-  font-weight: bold;
-  font-size:large;
-  font-family: "Georgia";
-  margin-right: 5%;
-}
-.heading {
-  height: 100%;
-  width: 100%;
+  background-size: cover ;
+  background-color: #914620;
+  background-position:-4px ;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-between;
 	align-items: center;
+
 }
 
 .carpet{
   height: 100%;
-  width:100%;
+  width: 100%;
+  
 }
 .logo {
-  height: 95%;
+  background-color: #b2b4b3 ;
+  border-radius: 15px;
+  content: inherit;
+  margin-right: 1%;
+  margin-left: 2%;
+  height: 100%;
+  width: 10%;
+  border-left: 5px;
+  border: 2px solid #9f7734;
+  object-fit: fill;
+  
 }
+/* 
+.user-name-name-welcome{
+  
+} */
+
+.login-page {
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+  width:75%;
+  height: 80%;
+  text-align: center;
+  margin-left: 14%;
+  margin-top: 2%;
+
+}
+
+form{
+  display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+  height: 80%;
+  width: 50%;
+  border-radius: 25px;
+  border: 2px solid #3d291e;
+  
+}
+
+.login-welcome-message{
+  width: 100.5%;
+  font-size: 52px;
+  margin: 1%;
+  -webkit-text-stroke: .5px #b2b4b3;
+  /* color:#b2b4b3; */
+  color: #dadbdb;
+  background-color: #3d291e;
+  border-radius: 25px 25px 0px 0px;
+  margin-top: -1.5px;
+  margin-bottom: 50px;
+  padding-top: 3px;
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.enter-password,
+.enter-username {
+  border-radius: 10px;
+  width:35%;
+  height: 9%;
+  background-color: #fefefe;
+}
+
+
+.label-user-name-input,
+.label-user-password-input{
+font-size: 25px;
+font-weight: bold;
+margin: 15px;
+
+}
+
+.submit-login{
+  background-color: #3d291e;
+  color: #dadbdb;
+  width:30%;
+  height: 9.5%;
+  border-radius: 10px;
+/* margin-bottom: 2px; */
+  margin-top: 30px;
+  font-size: 25px;
+}
+
+
+
+.your-bookings-heading {
+  font-size: 30px;
+  justify-content: center;
+}
+
+.user-name-banner {
+ width: 20%;
+ background-color: #3d291e;
+ height: 80%;
+ border-radius: 15px;
+ margin-right: 18px;
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ align-items: center;
+ margin-bottom: 20px;
+}
+
+
+.user-name {
+  background-color: #f0ead6;
+  text-align: center;
+  font-weight: bold;
+  font-family: "Georgia";
+  margin-right: 5%;
+  font-size: 28px;
+  margin-bottom: 0px;
+  width:90%;
+  margin-left: 15px;
+  margin-top: 12px;
+  border-radius: 15px;
+}
+
+.user-amount-spent-on-rooms{
+  text-align: center;
+  font-weight: bold;
+  font-family: "Georgia";
+  font-size: 32px;
+  background-color: #f0ead6;
+  margin-bottom: 0px;
+  border-radius: 0px 0px 15px 15px;
+  margin-top:15px;
+
+}
+
 
  
 
@@ -95,13 +216,15 @@ body {
 
 .customer-dashboard-container {
   height:100%;
-  width: 20%;
+  width: 40%;
+  display: flex;
   display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
-	justify-content: flex-start;
-	align-items: stretch;
-	align-content: space-between;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+  margin-left: 150px;
   
 }
 
@@ -131,7 +254,7 @@ body {
 }
 
 .book-a-room-container {
-  height: 100%;
+  height:85%;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -141,53 +264,123 @@ body {
   align-content: stretch;
 }
 
+.pick-a-date {
+  margin-top: 1px;
+  font-family: "Georgia";
+  font-weight: bold;
+  font-size: 50px;
+  text-align: center;
+  height: 20%;
+  margin-bottom: 5px;
+}
+
+.date-picker{
+  margin-top: 30px;
+  width: 30%;
+  height: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Georgia";
+  border: 2px solid #3d291e;
+  border-radius: 15px;
+
+}
+
+.go-back-button{
+  cursor: pointer;
+  background: #3d291e ;
+  color: #dadbdb;
+  font-family: "Georgia";
+  font-weight: bold;
+  width: 30%;
+  height: 50%;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-size: 20px;
+  
+}
+
 .collapsible-bookings-menu {
-  background-color: #eee;
-  color: #444;
+  margin-top: px ;
+  border-radius: 15px;
+  background-color: #3d291e;
+  color: #dadbdb;
   cursor: pointer;
   padding: 18px;
-  width: 100%;
+  width: 54%;
+  height:17.5%;
   /* height: %; */
   border: none;
-  text-align: left;
   outline: none;
-  font-size: 15px;
+  font-family: "Georgia";
+  font-size: 33px;
+  text-align: center;
+  box-shadow: 3px 3px 3px 3px #9f7734;
+  font-weight: bold;
+
 }
 
-.active, .collapsible-bookings-menu:hover {
-  background-color: #ccc;
+.active, 
+.collapsible-bookings-menu:hover{
+  color: #f0ead6; 
+  background-color: #3d291e;
+  /* font-size: 45px; */
+  color: #9f7734 ;
+  height:17.5%;
+  border: 2px solid #9f752b;
+  box-shadow: none;
+
 }
+
 
 .your-bookings-history {
-  height: 90%;
+  height: 78%;
+  width: 100%;
   padding: 0 18px;
   display: none;
   overflow-y: scroll;
-  background-color: #f1f1f1;
+  background: #f0ead6; 
 }
 
 
 
-.go-back-button,
 .book-a-room-button{
+  border-radius: 15px;
   cursor: pointer;
   width: 45%;
   height: 20%;
   background: #3d291e ;
   font-family: "Georgia";
-  color: white;
+  color: #dadbdb;
   font-weight: bold;
-  font-size:xx-large;
+  font-size:50px;
+  box-shadow: 3px 3px 3px 3px #9f7734;
+}
+
+.book-a-room-button:hover{
+box-shadow: none;
+color: #9f7734 ;
 }
 .book-a-room-section{
   width:100%;
   height: 90%;
-  
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
 }
+
 .book-a-room-display{
   width:100%;
   height: 85%;
   overflow-y: scroll;
+}
+
+.go-back-button-container{
+height:100%;
+
 }
 
 

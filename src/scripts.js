@@ -18,6 +18,8 @@ Promise.all([fetchData('rooms'), fetchData('bookings'), fetchData('customers')])
     allRooms = roomsData.rooms.map(room=> {return new Room(room)})
     allCustomers = customersData.customers.map(customer => {return new Customer(customer)})
     hotel = new Hotel(allRooms, allCustomers, bookingsData.bookings)
+                displayCustomerName()  
+
     setCurrentDate()
 })
 
@@ -25,7 +27,6 @@ Promise.all([fetchData('rooms'), fetchData('bookings'), fetchData('customers')])
 let yourBookings = document.getElementById('yourBookings')
 let datePickerInput = document.getElementById('datePickerInput')
 let bookARoomButton = document.getElementById('bookARoomButton')
-let bookARoomButtonHeading = document.getElementById('bookARoomButtonHeading')
 let userNameWelcome = document.getElementById('userNameWelcome')
 let homeSection = document.getElementById('homeSection')
 let bookARoomSection = document.getElementById('bookARoomSection')
@@ -65,33 +66,32 @@ bookARoomButton.addEventListener('click', showBookARoomSection);
 datePickerInput.addEventListener('change', captureDate)
 roomTypeSelect.addEventListener('change', filterByType)
 goBack.addEventListener('click', goBacktoMain)
-loginSubmit.addEventListener('click', login)
+// loginSubmit.addEventListener('click', login)
 
 
 
-function login(event) {
-    event.preventDefault()
-    let customerLoginId = userLoginName.value.split('r')[1]
-    let integerifycustomerLoginID = parseInt(customerLoginId)
-    customerNumber = (integerifycustomerLoginID-1)
-    allCustomers.find(customer =>{
-        if(customer.userID === integerifycustomerLoginID && userPassword.value === "overlook2021" ){
-            hide(userNameOrPasswordError)
-            hide(loginPage)
-            show(homeSection)
-            show(userNameWelcome)
-            displayCustomerName(customerNumber)  
-        } else if (customer.userID !== integerifycustomerLoginID || userPassword.value !== "overlook2021" || integerifycustomerLoginID === " " || userPassword.value === " " ||integerifycustomerLoginID === undefined ||  userPassword.value === undefined || integerifycustomerLoginID === NaN) {
-            show(userNameOrPasswordError)
-        }
-    }
-    )
-}
+// function login(event) {
+//     event.preventDefault()
+//     let customerLoginId = userLoginName.value.split('r')[1]
+//     let integerifycustomerLoginID = parseInt(customerLoginId)
+//     customerNumber = (integerifycustomerLoginID-1)
+//     allCustomers.find(customer =>{
+//         if(customer.userID === integerifycustomerLoginID && userPassword.value === "overlook2021" ){
+//             hide(userNameOrPasswordError)
+//             hide(loginPage)
+//             show(homeSection)
+//             show(userNameWelcome)
+//             displayCustomerName(customerNumber)  
+//         } else if (customer.userID !== integerifycustomerLoginID || userPassword.value !== "overlook2021" || integerifycustomerLoginID === " " || userPassword.value === " " ||integerifycustomerLoginID === undefined ||  userPassword.value === undefined || integerifycustomerLoginID === NaN) {
+//             show(userNameOrPasswordError)
+//         }
+//     })
+// }
 
 function displayCustomerName(customerNumber) {
-    currentCustomer = hotel.customers[customerNumber]
-    userNameWelcome.innerHTML = `<p> Welcome ${currentCustomer.name}</p> 
-    <p>Total amount spent on rooms ${hotel.customerBillingStatments(currentCustomer)}</p>
+    currentCustomer = hotel.customers[2]
+    userNameWelcome.innerHTML = `<p class="user-name" id="userNameWelcome"> Welcome, ${currentCustomer.name}</p> 
+    <p class="user-amount-spent-on-rooms" id="userHotelTotals">Total amount spent on rooms: $${hotel.customerBillingStatments(currentCustomer)}</p>
     <li class="hidden">${currentCustomer.userID}</li>`
     renderDashboard(currentCustomer)
 }
@@ -101,8 +101,11 @@ function handleButtons(event) {
       case "makeABookingButton":
         makeABookingWithHotel(event)
         break;
-        case "searchNewDate":
+      case "searchNewDate":
         newSearch(event)
+        break;
+      case "goBack":
+        goBacktoMain(event)
         break;
     default:
         break;
@@ -150,10 +153,17 @@ function captureDate() {
 }
 
 function makeABookingWithHotel(event){
+    console.log(event)
+
     let input = datePickerInput.value
     let selectedDate = input.split('-').join('/')
-    let customerID = event.path[8].children[0].children[0].children[2].children[0].children[2].innerText
+
+
     let roomNum = event.path[2].children[2].children[3].innerText
+    let customerID = event.path[8].children[0].children[1].children[2].innerText
+
+
+
     let integerifyroomNum = parseInt(roomNum)
     let integerifycustomerID = parseInt(customerID)
     console.log(integerifycustomerID)
@@ -165,7 +175,12 @@ function makeABookingWithHotel(event){
 }
 
 function confirmBooking() {
-    pickADate.innerHTML = `<h1 id="pickADate">Pick a date to book your room</h1>`
+    pickADate.innerHTML = 
+    ` <h1 class="pick-a-date" id="pickADate">Pick a date to book your room 
+    <div class="go-back-button-container"> 
+      <button class="go-back-button " id="goBack">Back to main</button>
+    </div>
+  </h1>`
     datePickerInput.value = null; 
     hide(bookARoomSection);
     show(datePickerInput)
@@ -185,8 +200,12 @@ function backToMain() {
 
 function newSearch(event) {
     hide(displayAvailableRoomsForSelectedDate)
-
-    pickADate.innerHTML = `<h1 id="pickADate">Pick a date to book your room</h1>`
+    pickADate.innerHTML =     
+    ` <h1 class="pick-a-date" id="pickADate">Pick a date to book your room 
+    <div class="go-back-button-container"> 
+      <button class="go-back-button " id="goBack">Back to main</button>
+    </div>
+  </h1>`
     hide(filterByTypeSection);
     datePickerInput.value = null; 
     show(datePickerInput)
