@@ -15,14 +15,14 @@ The project specs and rubric can be found [here](https://frontend.turing.edu/pro
 https://user-images.githubusercontent.com/100659793/183789833-4d887b7e-2908-4866-894e-9013fd2db4ae.mov
 
 ## Technologies Used
-1. Javascript
-1. HTML
-1. CSS
-1. Mocha and Chai
-1. fetch API to retrieve and add data
-1. Webpack
-1. GitHub & Git
-1. Lighthouse 
+- Javascript
+- HTML
+- CSS
+- Mocha and Chai
+- fetch API to retrieve and add data
+- Webpack
+- GitHub & Git
+- Lighthouse 
 
 ## Setup  
 
