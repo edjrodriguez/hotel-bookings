@@ -27,11 +27,10 @@ https://user-images.githubusercontent.com/100659793/183789833-4d887b7e-2908-4866
 ## Setup  
 
 1. On the top right corner of this page, click the Fork button. 
-1. Clone down the forked repo. 
+2. Clone down the forked repo. 
 
-### Fork and Clone This Repo
 
-Then install the library dependencies. Run:
+3. Then install the library dependencies. Run:
 
 ```bash or zsh
 npm install
@@ -39,7 +38,7 @@ npm install
 
 To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see the Login page that says "Welcome to the Overlook Hotel". If that's the case, you're good to go. 
 
-After you run `npm start`
+4. After you run `npm start`
 
 You will see a bunch of lines output to your terminal. One of those lines will be something like:
 
@@ -47,15 +46,15 @@ You will see a bunch of lines output to your terminal. One of those lines will b
 Project is running at http://localhost:8080/
 ```
 
-Go to `http://localhost:8080/` in your browser to view this project running in the browser.
+5. Go to `http://localhost:8080/` in your browser to view this project running in the browser.
 
 Enter `control + c` in your terminal to stop the server at any time.
 
-### You will also need this repo to run the backend server that the UI requires to function
+## You will also need this repo to run the backend server that the UI requires to function
 
-Go to this link [here](https://github.com/turingschool-examples/overlook-api)
+6. Go to this link [here](https://github.com/turingschool-examples/overlook-api)
 
-Read the setup instuctions for this 'overlook-api' README
+7. Read the setup instuctions for this 'overlook-api' README
 
 You will need both hosts running to see the fully functioning website
 
