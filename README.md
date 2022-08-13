@@ -8,12 +8,6 @@ This is a functional client side booking application for the fictional OverLook 
 
 The project specs and rubric can be found [here](https://frontend.turing.edu/projects/overlook)
 
-## Illustrated Design Mock-up
-<img width="300" alt="hotel bookings wireframes" src="https://user-images.githubusercontent.com/100659793/183789081-acabce26-97f1-478e-be40-33d245917114.jpg">
-
-## Guided Motion Feature
-https://user-images.githubusercontent.com/100659793/183789833-4d887b7e-2908-4866-894e-9013fd2db4ae.mov
-
 ## Technologies Used
 - Javascript
 - HTML
@@ -23,6 +17,13 @@ https://user-images.githubusercontent.com/100659793/183789833-4d887b7e-2908-4866
 - Webpack
 - GitHub & Git
 - Lighthouse 
+
+## Illustrated Design Mock-up
+<img width="300" alt="hotel bookings wireframes" src="https://user-images.githubusercontent.com/100659793/183789081-acabce26-97f1-478e-be40-33d245917114.jpg">
+
+## Guided Motion Feature
+https://user-images.githubusercontent.com/100659793/183789833-4d887b7e-2908-4866-894e-9013fd2db4ae.mov
+
 
 ## Setup  
 
