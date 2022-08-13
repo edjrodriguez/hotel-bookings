@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This is a functional client side booking application for the fictional OverLook Hotel featured in the Stephen King's 'The Shining."  This project leverages test driven development using Mocha and Chai, in addition to fetch API, to retrieve and add data to make live updates to the user interface as well as the backend server.  Lastly, this project follows best practices with regard to semantic HTMl and accessibility.
+This is a functional client side booking application for the fictional OverLook Hotel featured in the Stephen King's 'The Shining."  This project leverages test driven development using Mocha and Chai, in addition to fetch API, to retrieve and add data to make live updates to the user interface as well as the backend server.  Lastly, this project follows best practices with regard to semantic HTML and accessibility.
 
 ## Project Specs
 
